@@ -1,0 +1,112 @@
+<html style="height: 100%; margin: 0;">
+<head>
+
+	<title>topodemo</title>
+
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<link rel="shortcut icon" type="image/x-icon" href="docs/images/favicon.ico" />
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ==" crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js" integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew==" crossorigin=""></script>
+		<script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/Leaflet.fullscreen.min.js'></script>
+		<link href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css' rel='stylesheet' />
+		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"/>
+		<link rel="stylesheet" href="./dist/leaflet.zoomhome.css"/>
+		<script src="./dist/leaflet.zoomhome.min.js"></script>
+		<script src="./dist/bundle.js"></script>
+<!-- plugin -->
+    <link rel="stylesheet" href="css/Control.OSMGeocoder.css" />
+    <script src="js/Control.OSMGeocoder.js"></script>
+<!-- plugin -->
+	</head>
+
+	<body style="height: 100%; margin: 0; overflow: hidden;">
+	<div id='map' style="height: 100%; width: 100%;"></div>></div>
+	</body>
+
+	<script>
+
+	var map0 = L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+	maxZoom: 18,
+	attribution: "<a href='https://www.openstreetmap.org/#map=14/24.8168/103.3237' target='_blank'> © OpenStreetMap contributors  CC BY-SA2.0</a>"
+	});
+
+	var map1 = L.tileLayer('https://cyberjapandata.gsi.go.jp/xyz/pale/{z}/{x}/{y}.png', {
+	maxZoom: 18,
+	attribution: "<a href='https://maps.gsi.go.jp/development/ichiran.html' target='_blank'>地理院タイル・淡色地図</a>"
+	});
+
+	var map2 = L.tileLayer('https://cyberjapandata.gsi.go.jp/xyz/seamlessphoto/{z}/{x}/{y}.jpg', {
+	maxZoom: 18,
+	attribution: "<a href='https://maps.gsi.go.jp/development/ichiran.html' target='_blank'>地理院タイル・全国最新写真</a>"
+	});
+
+	var map3 = L.tileLayer('https://cyberjapandata.gsi.go.jp/xyz/gazo1/{z}/{x}/{y}.jpg', {
+	maxZoom: 17,
+	attribution: "<a href='https://maps.gsi.go.jp/development/ichiran.html' target='_blank'>地理院タイル・過去空中写真（1974年～1978年）</a>"
+	});
+
+	var map4 = L.tileLayer('https://cyberjapandata.gsi.go.jp/xyz/ort_old10/{z}/{x}/{y}.png', {
+	maxZoom: 17,
+	attribution: "<a href='https://maps.gsi.go.jp/development/ichiran.html' target='_blank'>地理院タイル・過去空中写真（1961年～1969年）</a>"
+	});
+
+	var map5 = L.tileLayer('https://cyberjapandata.gsi.go.jp/xyz/hillshademap/{z}/{x}/{y}.png', {
+	maxZoom: 16,
+	attribution: "<a href='https://maps.gsi.go.jp/development/ichiran.html' target='_blank'>地理院タイル・陰影起伏図</a>"
+	});
+
+	var map6 = L.tileLayer('https://cyberjapandata.gsi.go.jp/xyz/lcmfc2/{z}/{x}/{y}.png', {
+	maxZoom: 16,
+	attribution: "<a href='https://maps.gsi.go.jp/development/ichiran.html' target='_blank'>地理院タイル・治水地形分類図 更新版（2007～2019年）</a><a href='https://cyberjapandata.gsi.go.jp/legend/lcmfc2_legend.jpg' target='_blank'>凡例</a>"
+	});
+
+		var map = L.map('map', {
+			center: [34.686,131.834],
+			zoom: 14,
+			layers: [map0],
+			zoomControl: false
+		});
+
+		var baseLayers = {
+			"OpenStreetMap": map0,
+			"淡色地図": map1,
+			"最新空中写真": map2,
+			"1974年～1978年の空中写真":map3,
+			"1960年代の空中写真":map4,
+			"陰影起伏図":map5,
+			"治水地形分類図":map6
+		};
+
+		L.control.layers(baseLayers).addTo(map);
+		L.control.scale({imperial: false}).addTo(map);
+
+		var zoomHome = L.Control.zoomHome();
+		zoomHome.addTo(map);
+		map.addControl(new L.Control.Fullscreen());
+
+		var printer = L.easyPrint({
+			tileLayer: map1,
+			sizeModes: ['Current', 'A4Landscape', 'A4Portrait'],
+			filename: 'myMap',
+			exportOnly: true,
+			hideControlContainer: true
+}).addTo(map);
+
+function manualPrint () {
+	printer.printMap('CurrentSize', 'MyManualPrint')
+}
+
+var option = {
+  position: 'topright', // topright, topleft, bottomright, bottomleft
+  text: '検索',
+  placeholder: '検索条件を入力してください。'
+}
+var osmGeocoder = new L.Control.OSMGeocoder(option);
+map.addControl(osmGeocoder);
+
+	</script>
+
+</html>

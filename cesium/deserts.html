@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+      <meta name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+      <title>ggoer-topo-demo</title>
+      <script src="https://cesium.com/downloads/cesiumjs/releases/1.69/Build/Cesium/Cesium.js"></script>
+      <link href="https://cesium.com/downloads/cesiumjs/releases/1.69/Build/Cesium/Widgets/widgets.css" rel="stylesheet">
+      <!--<script src="node_modules/cesium/Build/Cesium/Cesium.js"></script>-->
+      <!--<link rel="stylesheet" href="node_modules/cesium/Build/Cesium/Widgets/widgets.css">-->
+      <link rel="stylesheet" href="./css/style.css">
+      <link rel="stylesheet" href="./css/box.css">
+  </head>
+  <body>
+    <div id="cesiumContainer" class="cesium"></div>
+    <div id="ac-box"class="ac-box">
+      <input id="acd-check1" class="acd-check" type="checkbox">
+        <label class="acd-label" for="acd-check1">
+          <img src="./img/layer_box.png"></label>
+        <div class="acd-content">
+          <input id="1" class="acd-check2" type="checkbox">
+            <label class="acd-label2" for="1">■乾燥地形</label>
+          <div class="acd-content2">
+              <input id="topo" type="checkbox" checked/>
+              <label for="topo">位置</label>
+        </div>
+          <input id="2" class="acd-check2" type="checkbox">
+            <label class="acd-label2" for="2"><span class="r">■</span>砂漠</label>
+          <div class="acd-content2">
+            <button type="button" class="cesium-button" onclick = "Gobi();" data-toggle="tooltip" data-placement="bottom" title="home">ゴビ砂漠</button><br>
+            <button type="button" class="cesium-button" onclick = "	Syrian();" data-toggle="tooltip" data-placement="bottom" title="home">シリア砂漠</button><br>
+            <button type="button" class="cesium-button" onclick = "Thar();" data-toggle="tooltip" data-placement="bottom" title="home">タール砂漠</button><br>
+            <button type="button" class="cesium-button" onclick = "Taklamakan();" data-toggle="tooltip" data-placement="bottom" title="home">タクラマカン砂漠</button><br>
+            <button type="button" class="cesium-button" onclick = "Kavir();" data-toggle="tooltip" data-placement="bottom" title="home">カヴィール砂漠</button><br>
+            <button type="button" class="cesium-button" onclick = "RubalKhali();" data-toggle="tooltip" data-placement="bottom" title="home">ルブアルハリ砂漠</button><br>
+            <button type="button" class="cesium-button" onclick = "Atacama();" data-toggle="tooltip" data-placement="bottom" title="home">アタカマ砂漠</button><br>
+            <button type="button" class="cesium-button" onclick = "Taklamakan();" data-toggle="tooltip" data-placement="bottom" title="home">タクラマカン砂漠</button><br>
+            <button type="button" class="cesium-button" onclick = "GreatBasin();" data-toggle="tooltip" data-placement="bottom" title="home">グレートベースン砂漠</button><br>
+            <button type="button" class="cesium-button" onclick = "Colorado();" data-toggle="tooltip" data-placement="bottom" title="home">コロラド砂漠</button><br>
+            <button type="button" class="cesium-button" onclick = "Mojave();" data-toggle="tooltip" data-placement="bottom" title="home">モハーヴェ砂漠</button><br>
+            <button type="button" class="cesium-button" onclick = "Kalahari();" data-toggle="tooltip" data-placement="bottom" title="home">カラハリ砂漠</button><br>
+            <button type="button" class="cesium-button" onclick = "Sahara();" data-toggle="tooltip" data-placement="bottom" title="home">サハラ砂漠</button><br>
+            <button type="button" class="cesium-button" onclick = "Namib();" data-toggle="tooltip" data-placement="bottom" title="home">ナミブ砂漠</button><br>
+            <button type="button" class="cesium-button" onclick = "GreatVictoriaDesert();" data-toggle="tooltip" data-placement="bottom" title="home">グレートビクトリア砂漠</button><br>
+            <button type="button" class="cesium-button" onclick = "Tanami();" data-toggle="tooltip" data-placement="bottom" title="home">タナミ砂漠</button>
+        </div>
+        <input id="3" class="acd-check2" type="checkbox">
+          <label class="acd-label2" for="3"><span class="b">■</span>メサ、ビュート</label>
+        <div class="acd-content2">
+            <button type="button" class="cesium-button" onclick = "MonumentValley();" data-toggle="tooltip" data-placement="bottom" title="home">モニュメント・バレー</button>
+        </div>
+        <input id="5" class="acd-check2" type="checkbox">
+          <label class="acd-label2" for="5"><span class="g">■</span>ワジ </label>
+        <div class="acd-content2">
+            <button type="button" class="cesium-button" onclick = "WadiRum();" data-toggle="tooltip" data-placement="bottom" title="home">ワディ・ラム</button><br>
+            <button type="button" class="cesium-button" onclick = "AWadi();" data-toggle="tooltip" data-placement="bottom" title="home">アラビア半島のワジ</button><br>
+            <button type="button" class="cesium-button" onclick = "SWadi();" data-toggle="tooltip" data-placement="bottom" title="home">サハラ砂漠東部のワジ</button>
+        </div>
+          <input id="6" class="acd-check2" type="checkbox">
+            <label class="acd-label2" for="6"><span class="p">■</span>オアシス</label>
+          <div class="acd-content2">
+            <button type="button" class="cesium-button" onclick = "Dunhuang();" data-toggle="tooltip" data-placement="bottom" title="home">敦煌</button><br>
+            <button type="button" class="cesium-button" onclick = "Shiwa();" data-toggle="tooltip" data-placement="bottom" title="home">シワ</button><br>
+            <button type="button" class="cesium-button" onclick = "Tabas();" data-toggle="tooltip" data-placement="bottom" title="home">Tabas</button><br>
+            <button type="button" class="cesium-button" onclick = "AlAin();" data-toggle="tooltip" data-placement="bottom" title="home">Al-Ain</button><br>
+            <button type="button" class="cesium-button" onclick = "Taghit();" data-toggle="tooltip" data-placement="bottom" title="home">Taghit</button><br>
+            <button type="button" class="cesium-button" onclick = "Kashgar();" data-toggle="tooltip" data-placement="bottom" title="home">カシュガル</button>
+          </div>
+          <input id="7" class="acd-check2" type="checkbox">
+            <label class="acd-label2" for="7"><span class="lb">■</span>塩湖</label>
+            <div class="acd-content2">
+            <button type="button" class="cesium-button" onclick = "Caspian();" data-toggle="tooltip" data-placement="bottom" title="home">カスピ海</button><br>
+            <button type="button" class="cesium-button" onclick = "Balkhash();" data-toggle="tooltip" data-placement="bottom" title="home">バルハシ湖(東）</button><br>
+            <button type="button" class="cesium-button" onclick = "GreatSaltLake();" data-toggle="tooltip" data-placement="bottom" title="home">グレートソルト湖</button><br>
+            <button type="button" class="cesium-button" onclick = "DeadSea();" data-toggle="tooltip" data-placement="bottom" title="home">死海</button><br>
+          <button type="button" class="cesium-button" onclick = "Makgadikgadi();" data-toggle="tooltip" data-placement="bottom" title="home">マカディカディ塩湖</button><br>
+          <button type="button" class="cesium-button" onclick = "Uyuni();" data-toggle="tooltip" data-placement="bottom" title="home">ウユニ塩湖</button>
+      </div>
+
+        <input id="0" class="acd-check2" type="checkbox">
+          <label class="acd-label2" for="0">■Maps</label>
+        <div class="acd-content2">
+          <div id="toolbar">
+            <table>
+              <tbody data-bind="foreach: layers">
+                <tr data-bind="css: { up: $parent.upLayer === $data, down: $parent.downLayer === $data }">
+                  <td><input type="checkbox" data-bind="checked: show"></td>
+                  <td>
+                    <span data-bind="text: name, visible: !$parent.isSelectableLayer($data)"></span>
+                    <select data-bind="visible: $parent.isSelectableLayer($data), options: $parent.baseLayers, optionsText: 'name', value: $parent.selectedLayer"></select>
+                  </td>
+                  <td>
+                    <input type="range" min="0" max="1" step="0.01" data-bind="value: alpha, valueUpdate: 'input'">
+                  </td>
+                  <td>
+                    <button type="button" class="cesium-button" data-bind="click: function() { $parent.raise($data, $index()); }, visible: $parent.canRaise($index())">
+                      ▲
+                    </button>
+                  </td>
+                  <td>
+                    <button type="button" class="cesium-button" data-bind="click: function() { $parent.lower($data, $index()); }, visible: $parent.canLower($index())">
+                      ▼
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+      </div>
+
+
+
+  </div>
+</div>
+
+    <script src="./js/deserts.js"></script>
+    <div style="position: absolute;bottom: 50px;left: 20px;">
+      <img src="./img/temp_logo_mini.png">
+    </div>
+
+  </body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+      <meta name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+      <title>ggoer-topo-demo</title>
+      <script src="https://cesium.com/downloads/cesiumjs/releases/1.69/Build/Cesium/Cesium.js"></script>
+      <link href="https://cesium.com/downloads/cesiumjs/releases/1.69/Build/Cesium/Widgets/widgets.css" rel="stylesheet">
+      <!--<script src="node_modules/cesium/Build/Cesium/Cesium.js"></script>-->
+      <!--<link rel="stylesheet" href="node_modules/cesium/Build/Cesium/Widgets/widgets.css">-->
+      <link rel="stylesheet" href="./css/style.css">
+      <link rel="stylesheet" href="./css/box.css">
+  </head>
+  <body>
+    <div id="cesiumContainer" class="cesium"></div>
+    <div id="ac-box"class="ac-box">
+      <input id="acd-check1" class="acd-check" type="checkbox">
+        <label class="acd-label" for="acd-check1">
+          <img src="./img/layer_box.png"></label>
+        <div class="acd-content">
+          <input id="1" class="acd-check2" type="checkbox">
+            <label class="acd-label2" for="1">■国内外のカルスト地形</label>
+          <div class="acd-content2">
+              <input id="topo" type="checkbox" checked/>
+              <label for="topo">位置</label>
+        </div>
+          <input id="2" class="acd-check2" type="checkbox">
+            <label class="acd-label2" for="2"><span class="r">■</span>カルスト地形</label>
+          <div class="acd-content2">
+            <button type="button" class="cesium-button" onclick = "Akiyoshi();" data-toggle="tooltip" data-placement="bottom" title="home">秋吉台</button><br>
+            <button type="button" class="cesium-button" onclick = "Hirao();" data-toggle="tooltip" data-placement="bottom" title="home">平尾台</button><br>
+            <button type="button" class="cesium-button" onclick = "Shikoku();" data-toggle="tooltip" data-placement="bottom" title="home">四国カルスト（大野ヶ原）</button><br>
+            <button type="button" class="cesium-button" onclick = "Omi();" data-toggle="tooltip" data-placement="bottom" title="home">近江カルスト（霊仙山）</button><br>
+            <button type="button" class="cesium-button" onclick = "Buko();" data-toggle="tooltip" data-placement="bottom" title="home">武甲山</button><br>
+            <button type="button" class="cesium-button" onclick = "Minamidaito();" data-toggle="tooltip" data-placement="bottom" title="home">南大東島</button><br>
+            <button type="button" class="cesium-button" onclick = "	HaLong();" data-toggle="tooltip" data-placement="bottom" title="home">ハロン湾</button><br>
+            <button type="button" class="cesium-button" onclick = "Guilin();" data-toggle="tooltip" data-placement="bottom" title="home">桂林</button><br>
+            <button type="button" class="cesium-button" onclick = "Shilin();" data-toggle="tooltip" data-placement="bottom" title="home">石林</button><br>
+            <button type="button" class="cesium-button" onclick = "ChocolateHills();" data-toggle="tooltip" data-placement="bottom" title="home">チョコレート・ヒルズ</button><br>
+            <button type="button" class="cesium-button" onclick = "Gunungkidul();" data-toggle="tooltip" data-placement="bottom" title="home">グヌンキダル</button><br>
+            <button type="button" class="cesium-button" onclick = "DinaricAlps();" data-toggle="tooltip" data-placement="bottom" title="home">ディナルアルプス山麓・カルスト台地</button><br>
+            <button type="button" class="cesium-button" onclick = "AggtelekSlovak();" data-toggle="tooltip" data-placement="bottom" title="home">アグテレク・カルストとスロバキア・カルストの洞窟群</button><br>
+            <button type="button" class="cesium-button" onclick = "Ingleborough();" data-toggle="tooltip" data-placement="bottom" title="home">Ingleborough（ヨークシャー）</button><br>
+            <button type="button" class="cesium-button" onclick = "PeakDistrict();" data-toggle="tooltip" data-placement="bottom" title="home">Peak District（イギリス）</button><br>
+            <button type="button" class="cesium-button" onclick = "MammothCave();" data-toggle="tooltip" data-placement="bottom" title="home">マンモス・ケーブ国立公園（ケンタッキー）</button><br>
+            <button type="button" class="cesium-button" onclick = "DunbarCave();" data-toggle="tooltip" data-placement="bottom" title="home">Dunbar Cave State Park（テネシー）</button><br>
+            <button type="button" class="cesium-button" onclick = "IkKil();" data-toggle="tooltip" data-placement="bottom" title="home">イク・キル（ユカタン半島北部）</button><br>
+            <button type="button" class="cesium-button" onclick = "CockpitCountry();" data-toggle="tooltip" data-placement="bottom" title="home">Cockpit Country（ジャマイカ）</button><br>
+            <button type="button" class="cesium-button" onclick = "RioAbajo();" data-toggle="tooltip" data-placement="bottom" title="home">Rio Abajo State Forest（プエルトリコ）</button>
+        </div>
+
+        <input id="3" class="acd-check2" type="checkbox">
+          <label class="acd-label2" for="3"><span class="b">■</span>ポリエ</label>
+        <div class="acd-content2">
+            <button type="button" class="cesium-button" onclick = "Livanjsko();" data-toggle="tooltip" data-placement="bottom" title="home">Livanjsko Polje</button><br>
+            <button type="button" class="cesium-button" onclick = "Popovo();" data-toggle="tooltip" data-placement="bottom" title="home">Popovo Polje</button><br>
+            <button type="button" class="cesium-button" onclick = "Licko();" data-toggle="tooltip" data-placement="bottom" title="home">Licko Polje</button>
+      </div>
+
+        <input id="0" class="acd-check2" type="checkbox">
+          <label class="acd-label2" for="0">■Maps</label>
+        <div class="acd-content2">
+          <div id="toolbar">
+            <table>
+              <tbody data-bind="foreach: layers">
+                <tr data-bind="css: { up: $parent.upLayer === $data, down: $parent.downLayer === $data }">
+                  <td><input type="checkbox" data-bind="checked: show"></td>
+                  <td>
+                    <span data-bind="text: name, visible: !$parent.isSelectableLayer($data)"></span>
+                    <select data-bind="visible: $parent.isSelectableLayer($data), options: $parent.baseLayers, optionsText: 'name', value: $parent.selectedLayer"></select>
+                  </td>
+                  <td>
+                    <input type="range" min="0" max="1" step="0.01" data-bind="value: alpha, valueUpdate: 'input'">
+                  </td>
+                  <td>
+                    <button type="button" class="cesium-button" data-bind="click: function() { $parent.raise($data, $index()); }, visible: $parent.canRaise($index())">
+                      ▲
+                    </button>
+                  </td>
+                  <td>
+                    <button type="button" class="cesium-button" data-bind="click: function() { $parent.lower($data, $index()); }, visible: $parent.canLower($index())">
+                      ▼
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+      </div>
+
+
+
+  </div>
+</div>
+
+    <script src="./js/karst.js"></script>
+    <div style="position: absolute;bottom: 50px;left: 20px;">
+      <img src="./img/temp_logo_mini.png">
+    </div>
+
+  </body>
+</html>

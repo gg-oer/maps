@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+      <meta name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+      <title>ggoer-topo-demo</title>
+      <script src="https://cesium.com/downloads/cesiumjs/releases/1.69/Build/Cesium/Cesium.js"></script>
+      <link href="https://cesium.com/downloads/cesiumjs/releases/1.69/Build/Cesium/Widgets/widgets.css" rel="stylesheet">
+      <!--<script src="node_modules/cesium/Build/Cesium/Cesium.js"></script>-->
+      <!--<link rel="stylesheet" href="node_modules/cesium/Build/Cesium/Widgets/widgets.css">-->
+      <link rel="stylesheet" href="./css/style.css">
+      <link rel="stylesheet" href="./css/box.css">
+  </head>
+  <body>
+    <div id="cesiumContainer" class="cesium"></div>
+    <div id="ac-box" class="ac-box">
+      <input id="1" class="acd-check" type="checkbox">
+        <label class="acd-label" for="1">
+          <img src="./img/layer_box.png"></label>
+        <div class="acd-content">
+        <input id="2" class="acd-check2" type="checkbox">
+          <label class="acd-label2" for="2">■成層火山</label>
+        <div class="acd-content2">
+            <button type="button" class="cesium-button" onclick = "fuji();" data-toggle="tooltip" data-placement="bottom" title="home">富士山</button>
+            <button type="button" class="cesium-button" onclick = "fuji_off();" data-toggle="tooltip" data-placement="bottom" title="down">斜め</button><br>
+            <button type="button" class="cesium-button" onclick = "mayon();" data-toggle="tooltip" data-placement="bottom" title="home">マヨン山</button>
+            <button type="button" class="cesium-button" onclick = "mayon_off();" data-toggle="tooltip" data-placement="bottom" title="down">斜め</button>
+          </div>
+          <input id="3" class="acd-check2" type="checkbox">
+            <label class="acd-label2" for="3">■楯状火山</label>
+          <div class="acd-content2">
+              <button type="button" class="cesium-button" onclick = "maunaloa();" data-toggle="tooltip" data-placement="bottom" title="home">マウナ・ロア</button>
+              <button type="button" class="cesium-button" onclick = "maunaloa_off();" data-toggle="tooltip" data-placement="bottom" title="down">斜め</button><br>
+              <button type="button" class="cesium-button" onclick = "maunakea();" data-toggle="tooltip" data-placement="bottom" title="home">マウナ・ケア</button>
+              <button type="button" class="cesium-button" onclick = "maunakea_off();" data-toggle="tooltip" data-placement="bottom" title="down">斜め</button>
+            </div>
+            <input id="4" class="acd-check2" type="checkbox">
+              <label class="acd-label2" for="4">■カルデラ</label>
+            <div class="acd-content2">
+                <button type="button" class="cesium-button" onclick = "aso();" data-toggle="tooltip" data-placement="bottom" title="home">阿蘇山</button>
+                <button type="button" class="cesium-button" onclick = "aso_off();" data-toggle="tooltip" data-placement="bottom" title="down">斜め</button><br>
+                <button type="button" class="cesium-button" onclick = "toya();" data-toggle="tooltip" data-placement="bottom" title="home">洞爺湖</button>
+                <button type="button" class="cesium-button" onclick = "toya_off();" data-toggle="tooltip" data-placement="bottom" title="down">斜め</button><br>
+                <button type="button" class="cesium-button" onclick = "taupo();" data-toggle="tooltip" data-placement="bottom" title="home">タウポ湖</button>
+                <button type="button" class="cesium-button" onclick = "taupo_off();" data-toggle="tooltip" data-placement="bottom" title="down">斜め</button><br>
+                <button type="button" class="cesium-button" onclick = "ngorongoro();" data-toggle="tooltip" data-placement="bottom" title="home">ンゴロンゴロ保全地域</button>
+                <button type="button" class="cesium-button" onclick = "ngorongoro_off();" data-toggle="tooltip" data-placement="bottom" title="down">斜め</button>
+              </div>
+              <input id="5" class="acd-check2" type="checkbox">
+                <label class="acd-label2" for="5">■溶岩円頂丘</label>
+              <div class="acd-content2">
+                  <button type="button" class="cesium-button" onclick = "showa_shinzan();" data-toggle="tooltip" data-placement="bottom" title="home">昭和新山</button>
+                  <button type="button" class="cesium-button" onclick = "showa_shinzan_off();" data-toggle="tooltip" data-placement="bottom" title="down">斜め</button><br>
+                  <button type="button" class="cesium-button" onclick = "unzen();" data-toggle="tooltip" data-placement="bottom" title="home">雲仙岳</button>
+                  <button type="button" class="cesium-button" onclick = "unzen_off();" data-toggle="tooltip" data-placement="bottom" title="down">斜め</button><br>
+                  <button type="button" class="cesium-button" onclick = "lassen();" data-toggle="tooltip" data-placement="bottom" title="home">ラッセン山</button>
+                  <button type="button" class="cesium-button" onclick = "lassen_off();" data-toggle="tooltip" data-placement="bottom" title="down">斜め</button><br>
+                  <button type="button" class="cesium-button" onclick = "myoko();" data-toggle="tooltip" data-placement="bottom" title="home">妙高山</button>
+                  <button type="button" class="cesium-button" onclick = "myoko_off();" data-toggle="tooltip" data-placement="bottom" title="down">斜め</button>
+                </div>
+                <input id="6" class="acd-check2" type="checkbox">
+                  <label class="acd-label2" for="6">■火山砕屑丘</label>
+                <div class="acd-content2">
+                    <button type="button" class="cesium-button" onclick = "omuro();" data-toggle="tooltip" data-placement="bottom" title="home">大室山</button>
+                    <button type="button" class="cesium-button" onclick = "omuro_off();" data-toggle="tooltip" data-placement="bottom" title="down">斜め</button><br>
+                    <button type="button" class="cesium-button" onclick = "komeduka();" data-toggle="tooltip" data-placement="bottom" title="home">米塚</button>
+                    <button type="button" class="cesium-button" onclick = "komeduka_off();" data-toggle="tooltip" data-placement="bottom" title="down">斜め</button><br>
+                    <button type="button" class="cesium-button" onclick = "diamond_head();" data-toggle="tooltip" data-placement="bottom" title="home">ダイヤモンドヘッド</button>
+                    <button type="button" class="cesium-button" onclick = "diamond_head_off();" data-toggle="tooltip" data-placement="bottom" title="down">斜め</button>
+                  </div>
+                  <input id="7" class="acd-check2" type="checkbox">
+                    <label class="acd-label2" for="7">■溶岩台地</label>
+                  <div class="acd-content2">
+                      <button type="button" class="cesium-button" onclick = "deccan();" data-toggle="tooltip" data-placement="bottom" title="home">デカン高原</button>
+                      <button type="button" class="cesium-button" onclick = "deccan_off();" data-toggle="tooltip" data-placement="bottom" title="down">斜め</button><br>
+                      <button type="button" class="cesium-button" onclick = "midagahara();" data-toggle="tooltip" data-placement="bottom" title="home">弥陀ヶ原</button>
+                      <button type="button" class="cesium-button" onclick = "midagahara_off();" data-toggle="tooltip" data-placement="bottom" title="down">斜め</button><br>
+                      <button type="button" class="cesium-button" onclick = "columbia();" data-toggle="tooltip" data-placement="bottom" title="home">コロンビア台地</button>
+                      <button type="button" class="cesium-button" onclick = "columbia_off();" data-toggle="tooltip" data-placement="bottom" title="down">斜め</button>
+                  </div>
+                  <input id="8" class="acd-check2" type="checkbox">
+                    <label class="acd-label2" for="8">■火砕流台地</label>
+                  <div class="acd-content2">
+                      <button type="button" class="cesium-button" onclick = "shirasu();" data-toggle="tooltip" data-placement="bottom" title="home">シラス台地</button>
+                      <button type="button" class="cesium-button" onclick = "shirasu_off();" data-toggle="tooltip" data-placement="bottom" title="down">斜め</button>
+                  </div>
+                  <input id="9" class="acd-check2" type="checkbox">
+                    <label class="acd-label2" for="9">■爆裂火口</label>
+                  <div class="acd-content2">
+                      <button type="button" class="cesium-button" onclick = "bandai();" data-toggle="tooltip" data-placement="bottom" title="home">磐梯山</button>
+                      <button type="button" class="cesium-button" onclick = "bandai_off();" data-toggle="tooltip" data-placement="bottom" title="down">斜め</button>
+                  </div>
+                  <input id="10" class="acd-check2" type="checkbox">
+                    <label class="acd-label2" for="10">■マール</label>
+                  <div class="acd-content2">
+                      <button type="button" class="cesium-button" onclick = "yonemaru();" data-toggle="tooltip" data-placement="bottom" title="home">米丸</button>
+                      <button type="button" class="cesium-button" onclick = "yonemaru_off();" data-toggle="tooltip" data-placement="bottom" title="down">斜め</button><br>
+                      <button type="button" class="cesium-button" onclick = "devil_mountain_lakes();" data-toggle="tooltip" data-placement="bottom" title="home">デビルマウンテンレイクス</button>
+                      <button type="button" class="cesium-button" onclick = "devil_mountain_lakes_off();" data-toggle="tooltip" data-placement="bottom" title="down">斜め</button><br>
+                      <button type="button" class="cesium-button" onclick = "schalkenmehrener();" data-toggle="tooltip" data-placement="bottom" title="home">シャルケンメーレナー・マール</button>
+                      <button type="button" class="cesium-button" onclick = "schalkenmehrener_off();" data-toggle="tooltip" data-placement="bottom" title="down">斜め</button>
+                  </div>
+                  <input id="layer" class="acd-check2" type="checkbox">
+                    <label class="acd-label2" for="layer">■Layers</label>
+                  <div class="acd-content2">
+                    <button type="button" class="cesium-button" onclick = "on_points();on_lines();" data-toggle="tooltip" data-placement="bottom" title="ON">ON</button><button type="button" class="cesium-button" onclick = "off();" data-toggle="tooltip" data-placement="bottom" title="OFF">OFF</button>
+                  </div>
+            <input id="0" class="acd-check2" type="checkbox">
+              <label class="acd-label2" for="0">■Maps</label>
+            <div class="acd-content2">
+          <div id="toolbar">
+            <table>
+              <tbody data-bind="foreach: layers">
+                <tr data-bind="css: { up: $parent.upLayer === $data, down: $parent.downLayer === $data }">
+                  <td><input type="checkbox" data-bind="checked: show"></td>
+                  <td>
+                    <span data-bind="text: name, visible: !$parent.isSelectableLayer($data)"></span>
+                    <select data-bind="visible: $parent.isSelectableLayer($data), options: $parent.baseLayers, optionsText: 'name', value: $parent.selectedLayer"></select>
+                  </td>
+                  <td>
+                    <input type="range" min="0" max="1" step="0.01" data-bind="value: alpha, valueUpdate: 'input'">
+                  </td>
+                  <td>
+                    <button type="button" class="cesium-button" data-bind="click: function() { $parent.raise($data, $index()); }, visible: $parent.canRaise($index())">
+                      ▲
+                    </button>
+                  </td>
+                  <td>
+                    <button type="button" class="cesium-button" data-bind="click: function() { $parent.lower($data, $index()); }, visible: $parent.canLower($index())">
+                      ▼
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="./js/volcanoes.js"></script>
+    <div style="position: absolute;bottom: 50px;left: 20px;">
+      <img src="./img/temp_logo_mini.png">
+    </div>
+  </body>
+</html>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+      <meta name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+      <title>ggoer-topo-demo</title>
+      <script src="https://cesium.com/downloads/cesiumjs/releases/1.69/Build/Cesium/Cesium.js"></script>
+      <link href="https://cesium.com/downloads/cesiumjs/releases/1.69/Build/Cesium/Widgets/widgets.css" rel="stylesheet">
+      <!--<script src="node_modules/cesium/Build/Cesium/Cesium.js"></script>-->
+      <!--<link rel="stylesheet" href="node_modules/cesium/Build/Cesium/Widgets/widgets.css">-->
+      <link rel="stylesheet" href="./css/style.css">
+      <link rel="stylesheet" href="./css/box.css">
+  </head>
+  <body>
+    <div id="cesiumContainer" class="cesium"></div>
+    <div id="ac-box"class="ac-box">
+      <input id="acd-check1" class="acd-check" type="checkbox">
+        <label class="acd-label" for="acd-check1">
+          <img src="./img/layer_box.png"></label>
+        <div class="acd-content">
+          <input id="1" class="acd-check2" type="checkbox">
+            <label class="acd-label2" for="1">■氷河のつくる地形</label>
+          <div class="acd-content2">
+              <input id="topo" type="checkbox" checked/>
+              <label for="topo">河川の位置</label>
+        </div>
+          <input id="2" class="acd-check2" type="checkbox">
+            <label class="acd-label2" for="2"><span class="r">■</span>氷河</label>
+          <div class="acd-content2">
+            <button type="button" class="cesium-button" onclick = "Pasterze();" data-toggle="tooltip" data-placement="bottom" title="home">パステルツェ氷河（オーストリア）</button><br>
+            <button type="button" class="cesium-button" onclick = "MerdeGlace();" data-toggle="tooltip" data-placement="bottom" title="home">メール・ド・グラース氷河（フランス）</button><br>
+            <button type="button" class="cesium-button" onclick = "Vatna();" data-toggle="tooltip" data-placement="bottom" title="home">ヴァトナ氷河(アイスランド)</button><br>
+            <button type="button" class="cesium-button" onclick = "Rongbuk();" data-toggle="tooltip" data-placement="bottom" title="home">ロンブク氷河(中国)</button><br>
+            <button type="button" class="cesium-button" onclick = "PeritoMoreno();" data-toggle="tooltip" data-placement="bottom" title="home">ペリト・モレノ氷河（アルゼンチン）</button><br>
+            <button type="button" class="cesium-button" onclick = "FranzJosef();" data-toggle="tooltip" data-placement="bottom" title="home">フランツ・ジョセフ氷河(ニュージーランド）</button><br>
+            <button type="button" class="cesium-button" onclick = "Athabasca();" data-toggle="tooltip" data-placement="bottom" title="home">アサバスカ氷河（カナダ）</button><br>
+            <button type="button" class="cesium-button" onclick = "GlacierNationalPark();" data-toggle="tooltip" data-placement="bottom" title="home">グレイシャー国立公園（アメリカ）</button><br>
+            <button type="button" class="cesium-button" onclick = "Bondhusbreen();" data-toggle="tooltip" data-placement="bottom" title="home">ボンダスブリーン氷河（ノルウェー）</button><br>
+            <button type="button" class="cesium-button" onclick = "Gangotri();" data-toggle="tooltip" data-placement="bottom" title="home">ガンゴートリー氷河（インド）</button><br>
+            <button type="button" class="cesium-button" onclick = "Rebmann();" data-toggle="tooltip" data-placement="bottom" title="home">レブマン氷河（タンザニア）</button>
+        </div>
+        <input id="3" class="acd-check2" type="checkbox">
+          <label class="acd-label2" for="3"><span class="b">■</span>ホーン、カール</label>
+        <div class="acd-content2">
+            <button type="button" class="cesium-button" onclick = "Matterhorn();" data-toggle="tooltip" data-placement="bottom" title="home">マッターホルン</button><br>
+            <button type="button" class="cesium-button" onclick = "Yarigatake();" data-toggle="tooltip" data-placement="bottom" title="home">槍ヶ岳</button><br>
+            <button type="button" class="cesium-button" onclick = "NorthCascades();" data-toggle="tooltip" data-placement="bottom" title="home">ノース・カスケード国立公園</button><br>
+            <button type="button" class="cesium-button" onclick = "AsraltKhairkhan();" data-toggle="tooltip" data-placement="bottom" title="home">アスラットハイルハン山</button>
+        </div>
+
+        <input id="4" class="acd-check2" type="checkbox">
+          <label class="acd-label2" for="4"><span class="g">■</span>モレーン、エスカー、ドラムリン</label>
+        <div class="acd-content2">
+            <button type="button" class="cesium-button" onclick = "Trollgarden();" data-toggle="tooltip" data-placement="bottom" title="home">トロールガーデン</button><br>
+            <button type="button" class="cesium-button" onclick = "MoraineLake();" data-toggle="tooltip" data-placement="bottom" title="home">モレーン湖（カナダ）</button><br>
+            <button type="button" class="cesium-button" onclick = "GreatEskerPark();" data-toggle="tooltip" data-placement="bottom" title="home">Great Esker Park</button><br>
+            <button type="button" class="cesium-button" onclick = "EberfingerDrumlinfeld();" data-toggle="tooltip" data-placement="bottom" title="home">Eberfinger Drumlinfeld</button><br>
+            <button type="button" class="cesium-button" onclick = "Westport();" data-toggle="tooltip" data-placement="bottom" title="home">ウェストポート（アイルランド）</button><br>
+            <button type="button" class="cesium-button" onclick = "Raderach();" data-toggle="tooltip" data-placement="bottom" title="home">Raderach（ドイツ）</button>
+        </div>
+
+        <input id="5" class="acd-check2" type="checkbox">
+          <label class="acd-label2" for="5"><span class="o">■</span>フィヨルド</label>
+        <div class="acd-content2">
+            <button type="button" class="cesium-button" onclick = "WestNorwegianFjords();" data-toggle="tooltip" data-placement="bottom" title="home">西ノルウェーフィヨルド群</button><br>
+            <button type="button" class="cesium-button" onclick = "Mariager();" data-toggle="tooltip" data-placement="bottom" title="home">マリアガー・フィヨルド（デンマーク）</button><br>
+            <button type="button" class="cesium-button" onclick = "Patagonia();" data-toggle="tooltip" data-placement="bottom" title="home">パタゴニア地方（チリ南部）</button><br>
+            <button type="button" class="cesium-button" onclick = "Greenland();" data-toggle="tooltip" data-placement="bottom" title="home">グリーンランド</button><br>
+            <button type="button" class="cesium-button" onclick = "MilfordSound();" data-toggle="tooltip" data-placement="bottom" title="home">ミルフォード・サウンド（ニュージーランド）</button><br>
+            <button type="button" class="cesium-button" onclick = "Misty();" data-toggle="tooltip" data-placement="bottom" title="home">ミスティ・フィヨルド（アラスカ）</button>
+        </div>
+
+          <input id="6" class="acd-check2" type="checkbox">
+            <label class="acd-label2" for="6"><span class="lb">■</span>羊背岩、迷子石</label>
+          <div class="acd-content2">
+            <button type="button" class="cesium-button" onclick = "CentralPark();" data-toggle="tooltip" data-placement="bottom" title="home">セントラルパーク</button><br>
+            <button type="button" class="cesium-button" onclick = "Yosemite();" data-toggle="tooltip" data-placement="bottom" title="home">ヨセミテ国立公園</button><br>
+            <button type="button" class="cesium-button" onclick = "Fourstones();" data-toggle="tooltip" data-placement="bottom" title="home">Fourstones（イギリス）</button>
+      </div>
+        <input id="0" class="acd-check2" type="checkbox">
+          <label class="acd-label2" for="0">■Maps</label>
+        <div class="acd-content2">
+          <div id="toolbar">
+            <table>
+              <tbody data-bind="foreach: layers">
+                <tr data-bind="css: { up: $parent.upLayer === $data, down: $parent.downLayer === $data }">
+                  <td><input type="checkbox" data-bind="checked: show"></td>
+                  <td>
+                    <span data-bind="text: name, visible: !$parent.isSelectableLayer($data)"></span>
+                    <select data-bind="visible: $parent.isSelectableLayer($data), options: $parent.baseLayers, optionsText: 'name', value: $parent.selectedLayer"></select>
+                  </td>
+                  <td>
+                    <input type="range" min="0" max="1" step="0.01" data-bind="value: alpha, valueUpdate: 'input'">
+                  </td>
+                  <td>
+                    <button type="button" class="cesium-button" data-bind="click: function() { $parent.raise($data, $index()); }, visible: $parent.canRaise($index())">
+                      ▲
+                    </button>
+                  </td>
+                  <td>
+                    <button type="button" class="cesium-button" data-bind="click: function() { $parent.lower($data, $index()); }, visible: $parent.canLower($index())">
+                      ▼
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+      </div>
+
+
+
+  </div>
+</div>
+
+    <script src="./js/glacial.js"></script>
+    <div style="position: absolute;bottom: 50px;left: 20px;">
+      <img src="./img/temp_logo_mini.png">
+    </div>
+
+  </body>
+</html>

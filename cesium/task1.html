@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+      <meta name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+      <title>ggoer-topo-demo</title>
+      <script src="https://cesium.com/downloads/cesiumjs/releases/1.69/Build/Cesium/Cesium.js"></script>
+      <link href="https://cesium.com/downloads/cesiumjs/releases/1.69/Build/Cesium/Widgets/widgets.css" rel="stylesheet">
+      <!--<script src="node_modules/cesium/Build/Cesium/Cesium.js"></script>-->
+      <!--<link rel="stylesheet" href="node_modules/cesium/Build/Cesium/Widgets/widgets.css">-->
+      <link rel="stylesheet" href="./css/style.css">
+      <link rel="stylesheet" href="./css/box.css">
+  </head>
+  <body>
+    <div id="cesiumContainer" class="cesium"></div>
+    <div id="ac-box" class="ac-box">
+      <input id="1" class="acd-check" type="checkbox">
+        <label class="acd-label" for="1">
+          <img src="./img/layer_box.png"></label>
+        <div class="acd-content">
+        <input id="2" class="acd-check2" type="checkbox">
+          <label class="acd-label2" for="2">■課題</label>
+        <div class="acd-content2">
+            <button type="button" class="cesium-button" onclick = "t1();" data-toggle="tooltip" data-placement="bottom" title="home">設問1</button>
+            <button type="button" class="cesium-button" onclick = "t2();" data-toggle="tooltip" data-placement="bottom" title="home">設問2</button>
+            <button type="button" class="cesium-button" onclick = "t3();" data-toggle="tooltip" data-placement="bottom" title="home">設問3</button>
+            <button type="button" class="cesium-button" onclick = "t4();" data-toggle="tooltip" data-placement="bottom" title="home">設問4</button>
+            <button type="button" class="cesium-button" onclick = "t5();" data-toggle="tooltip" data-placement="bottom" title="home">設問5</button><br>
+            <button type="button" class="cesium-button" onclick = "t6();" data-toggle="tooltip" data-placement="bottom" title="home">設問6</button>
+            <button type="button" class="cesium-button" onclick = "t7();" data-toggle="tooltip" data-placement="bottom" title="home">設問7</button>
+            <button type="button" class="cesium-button" onclick = "t8();" data-toggle="tooltip" data-placement="bottom" title="home">設問8</button>
+            <button type="button" class="cesium-button" onclick = "t9();" data-toggle="tooltip" data-placement="bottom" title="home">設問9</button>
+            <button type="button" class="cesium-button" onclick = "t10();" data-toggle="tooltip" data-placement="bottom" title="home">設問10</button>
+          </div>
+          <input id="3" class="acd-check2" type="checkbox">
+            <label class="acd-label2" for="3">■Layers</label>
+          <div class="acd-content2">
+            <input id="b" type="checkbox" checked/>
+            <label for="b">地形の範囲</label><br>
+          </div>
+            <input id="0" class="acd-check2" type="checkbox">
+              <label class="acd-label2" for="0">■Maps</label>
+            <div class="acd-content2">
+          <div id="toolbar">
+            <table>
+              <tbody data-bind="foreach: layers">
+                <tr data-bind="css: { up: $parent.upLayer === $data, down: $parent.downLayer === $data }">
+                  <td><input type="checkbox" data-bind="checked: show"></td>
+                  <td>
+                    <span data-bind="text: name, visible: !$parent.isSelectableLayer($data)"></span>
+                    <select data-bind="visible: $parent.isSelectableLayer($data), options: $parent.baseLayers, optionsText: 'name', value: $parent.selectedLayer"></select>
+                  </td>
+                  <td>
+                    <input type="range" min="0" max="1" step="0.01" data-bind="value: alpha, valueUpdate: 'input'">
+                  </td>
+                  <td>
+                    <button type="button" class="cesium-button" data-bind="click: function() { $parent.raise($data, $index()); }, visible: $parent.canRaise($index())">
+                      ▲
+                    </button>
+                  </td>
+                  <td>
+                    <button type="button" class="cesium-button" data-bind="click: function() { $parent.lower($data, $index()); }, visible: $parent.canLower($index())">
+                      ▼
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="./js/task1.js"></script>
+    <div style="position: absolute;bottom: 50px;left: 20px;">
+      <img src="./img/temp_logo_mini.png">
+    </div>
+  </body>
+</html>

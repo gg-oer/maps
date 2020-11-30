@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+      <meta name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+      <title>ggoer-topo-demo</title>
+      <script src="https://cesium.com/downloads/cesiumjs/releases/1.69/Build/Cesium/Cesium.js"></script>
+      <link href="https://cesium.com/downloads/cesiumjs/releases/1.69/Build/Cesium/Widgets/widgets.css" rel="stylesheet">
+      <!--<script src="node_modules/cesium/Build/Cesium/Cesium.js"></script>-->
+      <!--<link rel="stylesheet" href="node_modules/cesium/Build/Cesium/Widgets/widgets.css">-->
+      <link rel="stylesheet" href="./css/style.css">
+      <link rel="stylesheet" href="./css/box.css">
+  </head>
+  <body>
+    <div id="cesiumContainer" class="cesium"></div>
+    <div id="ac-box"class="ac-box">
+      <input id="acd-check1" class="acd-check" type="checkbox">
+        <label class="acd-label" for="acd-check1">
+          <img src="./img/layer_box.png"></label>
+        <div class="acd-content">
+          <input id="1" class="acd-check2" type="checkbox">
+            <label class="acd-label2" for="1">■世界の主要な山地</label>
+          <div class="acd-content2">
+              <input id="topo" type="checkbox" checked/>
+              <label for="topo">位置データ</label>
+        </div>
+          <input id="2" class="acd-check2" type="checkbox">
+            <label class="acd-label2" for="2"><span class="r">■</span>新期造山帯の山脈</label>
+          <div class="acd-content2">
+            <button type="button" class="cesium-button" onclick = "himalayan();" data-toggle="tooltip" data-placement="bottom" title="home">ヒマラヤ山脈</button><br>
+            <button type="button" class="cesium-button" onclick = "alpes();" data-toggle="tooltip" data-placement="bottom" title="home">アルプス山脈</button><br>
+            <button type="button" class="cesium-button" onclick = "andes();" data-toggle="tooltip" data-placement="bottom" title="home">アンデス山脈</button><br>
+            <button type="button" class="cesium-button" onclick = "rocky();" data-toggle="tooltip" data-placement="bottom" title="home">ロッキー山脈</button><br>
+            <button type="button" class="cesium-button" onclick = "atlas();" data-toggle="tooltip" data-placement="bottom" title="home">アトラス山脈</button><br>
+            <button type="button" class="cesium-button" onclick = "verkhoyansk();" data-toggle="tooltip" data-placement="bottom" title="home">ヴェルホヤンスク山脈</button><br>
+            <button type="button" class="cesium-button" onclick = "pyrenees();" data-toggle="tooltip" data-placement="bottom" title="home">ピレネー山脈</button><br>
+            <button type="button" class="cesium-button" onclick = "bismarck();" data-toggle="tooltip" data-placement="bottom" title="home">ビスマーク山脈</button><br>
+            <button type="button" class="cesium-button" onclick = "barisan();" data-toggle="tooltip" data-placement="bottom" title="home">バリサーン山脈</button>
+        </div>
+        <input id="3" class="acd-check2" type="checkbox">
+          <label class="acd-label2" for="3"><span class="b">■</span>古期造山帯の山脈</label>
+        <div class="acd-content2">
+            <button type="button" class="cesium-button" onclick = "appalachian();" data-toggle="tooltip" data-placement="bottom" title="home">アパラチア山脈</button><br>
+            <button type="button" class="cesium-button" onclick = "ural();" data-toggle="tooltip" data-placement="bottom" title="home">ウラル山脈</button><br>
+            <button type="button" class="cesium-button" onclick = "greater_khingan();" data-toggle="tooltip" data-placement="bottom" title="home">大シンアンリン山脈</button><br>
+            <button type="button" class="cesium-button" onclick = "tian_shan();" data-toggle="tooltip" data-placement="bottom" title="home">テンシャン山脈</button><br>
+            <button type="button" class="cesium-button" onclick = "drakensberg();" data-toggle="tooltip" data-placement="bottom" title="home">ドラケンスバーグ山脈</button><br>
+            <button type="button" class="cesium-button" onclick = "scandinavian();" data-toggle="tooltip" data-placement="bottom" title="home">スカンジナビア山脈</button><br>
+            <button type="button" class="cesium-button" onclick = "great_dividing();" data-toggle="tooltip" data-placement="bottom" title="home">グレートディヴァイディング山脈</button><br>
+            <button type="button" class="cesium-button" onclick = "byrranga();" data-toggle="tooltip" data-placement="bottom" title="home">ビルランガ山脈</button>
+        </div>
+
+        <input id="4" class="acd-check2" type="checkbox">
+          <label class="acd-label2" for="4"><span class="g">■</span>その他の高地・高原</label>
+        <div class="acd-content2">
+            <button type="button" class="cesium-button" onclick = "labrador();" data-toggle="tooltip" data-placement="bottom" title="home">ラブラドル高原</button><br>
+            <button type="button" class="cesium-button" onclick = "guiana();" data-toggle="tooltip" data-placement="bottom" title="home">ギアナ高地</button><br>
+            <button type="button" class="cesium-button" onclick = "brazilian();" data-toggle="tooltip" data-placement="bottom" title="home">ブラジル高原</button><br>
+            <button type="button" class="cesium-button" onclick = "deccan();" data-toggle="tooltip" data-placement="bottom" title="home">デカン高原</button><br>
+            <button type="button" class="cesium-button" onclick = "greenland();" data-toggle="tooltip" data-placement="bottom" title="home">グリーンランド</button><br>
+            <button type="button" class="cesium-button" onclick = "ethiopian();" data-toggle="tooltip" data-placement="bottom" title="home">エチオピア高原</button>
+        </div>
+
+        <input id="5" class="acd-check2" type="checkbox">
+          <label class="acd-label2" for="5"><span class="o">■</span>日本の山脈</label>
+        <div class="acd-content2">
+            <button type="button" class="cesium-button" onclick = "hidaka();" data-toggle="tooltip" data-placement="bottom" title="home">日高山脈</button><br>
+            <button type="button" class="cesium-button" onclick = "ou();" data-toggle="tooltip" data-placement="bottom" title="home">奥羽山脈</button><br>
+            <button type="button" class="cesium-button" onclick = "hida();" data-toggle="tooltip" data-placement="bottom" title="home">飛騨山脈</button><br>
+            <button type="button" class="cesium-button" onclick = "kiso();" data-toggle="tooltip" data-placement="bottom" title="home">木曽山脈</button><br>
+            <button type="button" class="cesium-button" onclick = "akaishi();" data-toggle="tooltip" data-placement="bottom" title="home">赤石山脈</button><br>
+            <button type="button" class="cesium-button" onclick = "suzuka();" data-toggle="tooltip" data-placement="bottom" title="home">鈴鹿山脈</button><br>
+            <button type="button" class="cesium-button" onclick = "ki();" data-toggle="tooltip" data-placement="bottom" title="home">紀伊山地</button><br>
+            <button type="button" class="cesium-button" onclick = "chugoku();" data-toggle="tooltip" data-placement="bottom" title="home">中国山地</button><br>
+            <button type="button" class="cesium-button" onclick = "shikoku();" data-toggle="tooltip" data-placement="bottom" title="home">四国山地</button><br>
+            <button type="button" class="cesium-button" onclick = "tsukushi();" data-toggle="tooltip" data-placement="bottom" title="home">筑紫山地</button><br>
+            <button type="button" class="cesium-button" onclick = "kyushu();" data-toggle="tooltip" data-placement="bottom" title="home">九州山地</button>
+          </div>
+
+          <input id="6" class="acd-check2" type="checkbox">
+            <label class="acd-label2" for="6"><span class="lg">■</span>日本の準平原（隆起準平原）</label>
+          <div class="acd-content2">
+            <button type="button" class="cesium-button" onclick = "odaigahara();" data-toggle="tooltip" data-placement="bottom" title="home">大台ヶ原</button><br>
+            <button type="button" class="cesium-button" onclick = "kibi();" data-toggle="tooltip" data-placement="bottom" title="home">吉備高原</button><br>
+            <button type="button" class="cesium-button" onclick = "abukuma();" data-toggle="tooltip" data-placement="bottom" title="home">阿武隈高地</button>
+      </div>
+        <input id="0" class="acd-check2" type="checkbox">
+          <label class="acd-label2" for="0">■Maps</label>
+        <div class="acd-content2">
+          <div id="toolbar">
+            <table>
+              <tbody data-bind="foreach: layers">
+                <tr data-bind="css: { up: $parent.upLayer === $data, down: $parent.downLayer === $data }">
+                  <td><input type="checkbox" data-bind="checked: show"></td>
+                  <td>
+                    <span data-bind="text: name, visible: !$parent.isSelectableLayer($data)"></span>
+                    <select data-bind="visible: $parent.isSelectableLayer($data), options: $parent.baseLayers, optionsText: 'name', value: $parent.selectedLayer"></select>
+                  </td>
+                  <td>
+                    <input type="range" min="0" max="1" step="0.01" data-bind="value: alpha, valueUpdate: 'input'">
+                  </td>
+                  <td>
+                    <button type="button" class="cesium-button" data-bind="click: function() { $parent.raise($data, $index()); }, visible: $parent.canRaise($index())">
+                      ▲
+                    </button>
+                  </td>
+                  <td>
+                    <button type="button" class="cesium-button" data-bind="click: function() { $parent.lower($data, $index()); }, visible: $parent.canLower($index())">
+                      ▼
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+      </div>
+
+
+
+  </div>
+</div>
+
+    <script src="./js/mountains.js"></script>
+    <div style="position: absolute;bottom: 50px;left: 20px;">
+      <img src="./img/temp_logo_mini.png">
+    </div>
+
+  </body>
+</html>

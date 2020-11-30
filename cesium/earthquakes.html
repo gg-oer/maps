@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+      <meta name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+      <title>ggoer-topo-demo</title>
+      <script src="https://cesium.com/downloads/cesiumjs/releases/1.69/Build/Cesium/Cesium.js"></script>
+      <link href="https://cesium.com/downloads/cesiumjs/releases/1.69/Build/Cesium/Widgets/widgets.css" rel="stylesheet">
+      <!--<script src="node_modules/cesium/Build/Cesium/Cesium.js"></script>-->
+      <!--<link rel="stylesheet" href="node_modules/cesium/Build/Cesium/Widgets/widgets.css">-->
+      <link rel="stylesheet" href="./css/style.css">
+      <link rel="stylesheet" href="./css/box.css">
+  </head>
+  <body>
+    <div id="cesiumContainer" class="cesium"></div>
+    <div id="ac-box"class="ac-box">
+      <input id="acd-check1" class="acd-check" type="checkbox">
+        <label class="acd-label" for="acd-check1">
+          <img src="./img/layer_box.png"></label>
+        <div class="acd-content">
+          <input id="1" class="acd-check2" type="checkbox">
+            <label class="acd-label2" for="1">■Layers</label>
+          <div class="acd-content2">
+              <input id="eq" type="checkbox" checked/>
+              <label for="eq"><span class="p">● </span>大地震(1900-2020)</label>
+        </div>
+
+          <input id="2" class="acd-check2" type="checkbox">
+            <label class="acd-label2" for="2">■12の事例</label>
+          <div class="acd-content2">
+            <button type="button" class="cesium-button" onclick = "tohoku();" data-toggle="tooltip" data-placement="bottom" title="home">東北地方太平洋沖地_2011年</button>
+            <br>
+            <button type="button" class="cesium-button" onclick = "hanshin();" data-toggle="tooltip" data-placement="bottom" title="home">兵庫県南部地震(1995年)</button><br>
+            <button type="button" class="cesium-button" onclick = "kanto();" data-toggle="tooltip" data-placement="bottom" title="home">関東地震（1923年）</button><br>
+            <button type="button" class="cesium-button" onclick = "kumamoto();" data-toggle="tooltip" data-placement="bottom" title="home">熊本地震（2016年）</button><br>
+            <button type="button" class="cesium-button" onclick = "iburi();" data-toggle="tooltip" data-placement="bottom" title="home">北海道胆振東部地震（2018年）</button><br>
+            <button type="button" class="cesium-button" onclick = "nigata();" data-toggle="tooltip" data-placement="bottom" title="home">新潟県中越地震（2004年）</button><br>
+            <button type="button" class="cesium-button" onclick = "indonesia();" data-toggle="tooltip" data-placement="bottom" title="home">スマトラ島沖地震(2004年)</button><br>
+            <button type="button" class="cesium-button" onclick = "haiti();" data-toggle="tooltip" data-placement="bottom" title="home">ハイチ地震(2010年)</button><br>
+            <button type="button" class="cesium-button" onclick = "tangshan();" data-toggle="tooltip" data-placement="bottom" title="home">唐山地震(1976年)</button><br>
+            <button type="button" class="cesium-button" onclick = "chile();" data-toggle="tooltip" data-placement="bottom" title="home">チリ地震 (1960年)</button><br>
+            <button type="button" class="cesium-button" onclick = "sichuan();" data-toggle="tooltip" data-placement="bottom" title="home">四川地震(2008年)</button><br>
+            <button type="button" class="cesium-button" onclick = "nepar();" data-toggle="tooltip" data-placement="bottom" title="home">ネパール地震（2015年）</button>
+        </div>
+        <input id="3" class="acd-check2" type="checkbox">
+          <label class="acd-label2" for="3">■Maps</label>
+        <div class="acd-content2">
+          <div id="toolbar">
+            <table>
+              <tbody data-bind="foreach: layers">
+                <tr data-bind="css: { up: $parent.upLayer === $data, down: $parent.downLayer === $data }">
+                  <td><input type="checkbox" data-bind="checked: show"></td>
+                  <td>
+                    <span data-bind="text: name, visible: !$parent.isSelectableLayer($data)"></span>
+                    <select data-bind="visible: $parent.isSelectableLayer($data), options: $parent.baseLayers, optionsText: 'name', value: $parent.selectedLayer"></select>
+                  </td>
+                  <td>
+                    <input type="range" min="0" max="1" step="0.01" data-bind="value: alpha, valueUpdate: 'input'">
+                  </td>
+                  <td>
+                    <button type="button" class="cesium-button" data-bind="click: function() { $parent.raise($data, $index()); }, visible: $parent.canRaise($index())">
+                      ▲
+                    </button>
+                  </td>
+                  <td>
+                    <button type="button" class="cesium-button" data-bind="click: function() { $parent.lower($data, $index()); }, visible: $parent.canLower($index())">
+                      ▼
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+      </div>
+
+
+
+  </div>
+</div>
+
+    <script src="./js/earthquakes.js"></script>
+    <div style="position: absolute;bottom: 50px;left: 20px;">
+      <img src="./img/temp_logo_mini.png">
+    </div>
+
+  </body>
+</html>

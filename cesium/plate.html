@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+      <meta name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+      <title>ggoer-topo-demo</title>
+      <script src="https://cesium.com/downloads/cesiumjs/releases/1.69/Build/Cesium/Cesium.js"></script>
+      <link href="https://cesium.com/downloads/cesiumjs/releases/1.69/Build/Cesium/Widgets/widgets.css" rel="stylesheet">
+      <!--<script src="node_modules/cesium/Build/Cesium/Cesium.js"></script>-->
+      <!--<link rel="stylesheet" href="node_modules/cesium/Build/Cesium/Widgets/widgets.css">-->
+      <link rel="stylesheet" href="./css/style.css">
+      <link rel="stylesheet" href="./css/box.css">
+  </head>
+  <body>
+    <div id="cesiumContainer" class="cesium"></div>
+    <div style="position:absolute;top:0px;left:20px;" class="ac-box">
+      <input id="acd-check1" class="acd-check" type="checkbox">
+        <label class="acd-label" for="acd-check1">
+          <img src="./img/layer_box.png"></label>
+        <div class="acd-content">
+          <button type="button" class="cesium-button" onclick = "zta();" data-toggle="tooltip" data-placement="bottom" title="A">A:狭まる境界:日本海溝</button>
+          <br><button type="button" class="cesium-button" onclick = "ztb();" data-toggle="tooltip" data-placement="bottom" title="B">B:狭まる境界:ヒマラヤ山脈</button>
+          <br><button type="button" class="cesium-button" onclick = "ztc();" data-toggle="tooltip" data-placement="bottom" title="C">C:広がる境界:大西洋中央海嶺</button>
+          <br><button type="button" class="cesium-button" onclick = "ztd();" data-toggle="tooltip" data-placement="bottom" title="D">D:広がる境界:大地溝帯</button>
+          <br><button type="button" class="cesium-button" onclick = "zte();" data-toggle="tooltip" data-placement="bottom" title="E">E:ずれる境界:サンアンドレアス断層</button>
+          <br><button type="button" class="cesium-button" onclick = "gj();" data-toggle="tooltip" data-placement="bottom" title="ON">境界（数秒待機）</button><button type="button" class="cesium-button" onclick = "off();" data-toggle="tooltip" data-placement="bottom" title="OFF">境界を非表示</button>
+          <br><img src="./img/plate/legend.png" width=auto height=100 >
+        </div>
+      </div>
+    <script src="./js/plate.js"></script>
+    <div style="position: absolute;bottom: 50px;left: 20px;">
+      <img src="./img/temp_logo_mini.png">
+    </div>
+  </body>
+</html>

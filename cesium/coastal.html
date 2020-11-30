@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+      <meta name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+      <title>ggoer-topo-demo</title>
+      <script src="https://cesium.com/downloads/cesiumjs/releases/1.69/Build/Cesium/Cesium.js"></script>
+      <link href="https://cesium.com/downloads/cesiumjs/releases/1.69/Build/Cesium/Widgets/widgets.css" rel="stylesheet">
+      <!--<script src="node_modules/cesium/Build/Cesium/Cesium.js"></script>-->
+      <!--<link rel="stylesheet" href="node_modules/cesium/Build/Cesium/Widgets/widgets.css">-->
+      <link rel="stylesheet" href="./css/style.css">
+      <link rel="stylesheet" href="./css/box.css">
+  </head>
+  <body>
+    <div id="cesiumContainer" class="cesium"></div>
+    <div id="ac-box"class="ac-box">
+      <input id="acd-check1" class="acd-check" type="checkbox">
+        <label class="acd-label" for="acd-check1">
+          <img src="./img/layer_box.png"></label>
+        <div class="acd-content">
+          <input id="1" class="acd-check2" type="checkbox">
+            <label class="acd-label2" for="1">■海岸の地形</label>
+          <div class="acd-content2">
+              <input id="topo" type="checkbox" checked/>
+              <label for="topo">位置</label>
+        </div>
+          <input id="2" class="acd-check2" type="checkbox">
+            <label class="acd-label2" for="2"><span class="r">■</span>海岸平野</label>
+          <div class="acd-content2">
+            <button type="button" class="cesium-button" onclick = "Echigo();" data-toggle="tooltip" data-placement="bottom" title="home">越後平野</button><br>
+            <button type="button" class="cesium-button" onclick = "Kujukuri();" data-toggle="tooltip" data-placement="bottom" title="home">九十九里浜</button><br>
+            <button type="button" class="cesium-button" onclick = "Everglades();" data-toggle="tooltip" data-placement="bottom" title="home">エバーグレーズ（大西洋海岸平野）</button>
+        </div>
+        <input id="3" class="acd-check2" type="checkbox">
+          <label class="acd-label2" for="3"><span class="b">■</span>砂州、砂嘴、陸繋島</label>
+        <div class="acd-content2">
+            <button type="button" class="cesium-button" onclick = "Amanohashidate();" data-toggle="tooltip" data-placement="bottom" title="home">天橋立</button><br>
+            <button type="button" class="cesium-button" onclick = "Curonian();" data-toggle="tooltip" data-placement="bottom" title="home">クルシュー砂州</button><br>
+            <button type="button" class="cesium-button" onclick = "Arabat();" data-toggle="tooltip" data-placement="bottom" title="home">アラバト・スピット（黒海）</button><br>
+            <button type="button" class="cesium-button" onclick = "Notsuke();" data-toggle="tooltip" data-placement="bottom" title="home">野付半島</button><br>
+            <button type="button" class="cesium-button" onclick = "Mihonomatsubara();" data-toggle="tooltip" data-placement="bottom" title="home">三保の松原</button><br>
+            <button type="button" class="cesium-button" onclick = "Cod();" data-toggle="tooltip" data-placement="bottom" title="home">ケープコッド</button><br>
+            <button type="button" class="cesium-button" onclick = "Dungeness();" data-toggle="tooltip" data-placement="bottom" title="home">ダンジネス・スピット</button><br>
+            <button type="button" class="cesium-button" onclick = "Hakodate();" data-toggle="tooltip" data-placement="bottom" title="home">函館</button><br>
+            <button type="button" class="cesium-button" onclick = "Kushimoto();" data-toggle="tooltip" data-placement="bottom" title="home">串本</button><br>
+            <button type="button" class="cesium-button" onclick = "MontSaintMichel();" data-toggle="tooltip" data-placement="bottom" title="home">モン・サン・ミッシェル</button><br>
+            <button type="button" class="cesium-button" onclick = "Langlade();" data-toggle="tooltip" data-placement="bottom" title="home">ラングラード島</button>
+        </div>
+        <input id="4" class="acd-check2" type="checkbox">
+          <label class="acd-label2" for="4"><span class="g">■</span>海跡湖</label>
+        <div class="acd-content2">
+            <button type="button" class="cesium-button" onclick = "Koyama();" data-toggle="tooltip" data-placement="bottom" title="home">湖山池</button><br>
+            <button type="button" class="cesium-button" onclick = "Saroma();" data-toggle="tooltip" data-placement="bottom" title="home">サロマ湖</button><br>
+            <button type="button" class="cesium-button" onclick = "Venetia();" data-toggle="tooltip" data-placement="bottom" title="home">ヴェネツィアの潟</button><br>
+            <button type="button" class="cesium-button" onclick = "Songkhla();" data-toggle="tooltip" data-placement="bottom" title="home">ソンクラー湖</button>
+        </div>
+        <input id="5" class="acd-check2" type="checkbox">
+          <label class="acd-label2" for="5"><span class="o">■</span>干潟 </label>
+        <div class="acd-content2">
+            <button type="button" class="cesium-button" onclick = "Beemster();" data-toggle="tooltip" data-placement="bottom" title="home">ベームスター干拓地</button><br>
+            <button type="button" class="cesium-button" onclick = "Thames();" data-toggle="tooltip" data-placement="bottom" title="home">テムズ川</button><br>
+            <button type="button" class="cesium-button" onclick = "Saemangeum();" data-toggle="tooltip" data-placement="bottom" title="home">セマングム</button><br>
+            <button type="button" class="cesium-button" onclick = "Ariake();" data-toggle="tooltip" data-placement="bottom" title="home">有明海</button><br>
+            <button type="button" class="cesium-button" onclick = "Banzu();" data-toggle="tooltip" data-placement="bottom" title="home">盤州干潟</button>
+        </div>
+          <input id="6" class="acd-check2" type="checkbox">
+            <label class="acd-label2" for="6"><span class="p">■</span>海岸砂丘</label>
+          <div class="acd-content2">
+            <button type="button" class="cesium-button" onclick = "Tottori();" data-toggle="tooltip" data-placement="bottom" title="home">鳥取砂丘</button><br>
+            <button type="button" class="cesium-button" onclick = "Nakatajima();" data-toggle="tooltip" data-placement="bottom" title="home">中田島砂丘</button><br>
+            <button type="button" class="cesium-button" onclick = "Oregon();" data-toggle="tooltip" data-placement="bottom" title="home">オレゴン砂丘</button><br>
+            <button type="button" class="cesium-button" onclick = "Pilat();" data-toggle="tooltip" data-placement="bottom" title="home">ピラ砂丘</button>
+          </div>
+          <input id="7" class="acd-check2" type="checkbox">
+            <label class="acd-label2" for="7"><span class="lb">■</span>海岸段丘</label>
+            <div class="acd-content2">
+            <button type="button" class="cesium-button" onclick = "Muroto();" data-toggle="tooltip" data-placement="bottom" title="home">室戸</button><br>
+            <button type="button" class="cesium-button" onclick = "Omaezaki();" data-toggle="tooltip" data-placement="bottom" title="home">御前崎</button><br>
+            <button type="button" class="cesium-button" onclick = "TonguePoint();" data-toggle="tooltip" data-placement="bottom" title="home">Tongue Point（ニュージーランド）</button><br>
+            <button type="button" class="cesium-button" onclick = "SantaCruz();" data-toggle="tooltip" data-placement="bottom" title="home">サンタクルーズ（アメリカ）</button>
+      </div>
+          <input id="8" class="acd-check2" type="checkbox">
+            <label class="acd-label2" for="8"><span class="lg">■</span>海食崖、海食台（波食台を含む）</label>
+          <div class="acd-content2">
+          <button type="button" class="cesium-button" onclick = "Byoubugaura();" data-toggle="tooltip" data-placement="bottom" title="home">屏風ヶ浦</button><br>
+          <button type="button" class="cesium-button" onclick = "Dover();" data-toggle="tooltip" data-placement="bottom" title="home">ドーバーの白い崖（イギリス）</button><br>
+          <button type="button" class="cesium-button" onclick = "Moher();" data-toggle="tooltip" data-placement="bottom" title="home">モハーの断崖（アイルランド）</button><br>
+          <button type="button" class="cesium-button" onclick = "Aoshima();" data-toggle="tooltip" data-placement="bottom" title="home">青島</button><br>
+          <button type="button" class="cesium-button" onclick = "Southerndown();" data-toggle="tooltip" data-placement="bottom" title="home">Southerndown（イギリス）</button>
+      </div>
+      <input id="9" class="acd-check2" type="checkbox">
+        <label class="acd-label2" for="9"><span class="y">■</span>リアス海岸</label>
+      <div class="acd-content2">
+        <button type="button" class="cesium-button" onclick = "Galicia();" data-toggle="tooltip" data-placement="bottom" title="home">ガリシア地方</button><br>
+        <button type="button" class="cesium-button" onclick = "Sanriku();" data-toggle="tooltip" data-placement="bottom" title="home">三陸海岸</button><br>
+        <button type="button" class="cesium-button" onclick = "SanFrancisco();" data-toggle="tooltip" data-placement="bottom" title="home">サンフランシスコ</button><br>
+        <button type="button" class="cesium-button" onclick = "Sydney();" data-toggle="tooltip" data-placement="bottom" title="home">シドニー</button>
+      </div>
+
+      <input id="10" class="acd-check2" type="checkbox">
+        <label class="acd-label2" for="10"><span class="pu">■</span>三角江</label>
+      <div class="acd-content2">
+        <button type="button" class="cesium-button" onclick = "Lawrence();" data-toggle="tooltip" data-placement="bottom" title="home">セントローレンス川</button><br>
+        <button type="button" class="cesium-button" onclick = "LaPlata();" data-toggle="tooltip" data-placement="bottom" title="home">ラプラタ川</button><br>
+        <button type="button" class="cesium-button" onclick = "Seine();" data-toggle="tooltip" data-placement="bottom" title="home">セーヌ川</button><br>
+        <button type="button" class="cesium-button" onclick = "Elbe();" data-toggle="tooltip" data-placement="bottom" title="home">エルベ川</button>
+      </div>
+
+      <input id="11" class="acd-check2" type="checkbox">
+        <label class="acd-label2" for="11"><span class="br">■</span>サンゴ礁</label>
+      <div class="acd-content2">
+        <button type="button" class="cesium-button" onclick = "GreatBarrierReef();" data-toggle="tooltip" data-placement="bottom" title="home">グレートバリアリーフ</button><br>
+        <button type="button" class="cesium-button" onclick = "NewCaledonian();" data-toggle="tooltip" data-placement="bottom" title="home">ニューカレドニアバリアリーフ</button><br>
+        <button type="button" class="cesium-button" onclick = "Minamitorishima();" data-toggle="tooltip" data-placement="bottom" title="home">南鳥島</button><br>
+        <button type="button" class="cesium-button" onclick = "Huvadhu();" data-toggle="tooltip" data-placement="bottom" title="home">フヴァドゥ環礁</button><br>
+        <button type="button" class="cesium-button" onclick = "Atafu();" data-toggle="tooltip" data-placement="bottom" title="home">アタフ島</button><br>
+        <button type="button" class="cesium-button" onclick = "ChiChijima();" data-toggle="tooltip" data-placement="bottom" title="home">父島</button>
+
+      </div>
+        <input id="0" class="acd-check2" type="checkbox">
+          <label class="acd-label2" for="0">■Maps</label>
+        <div class="acd-content2">
+          <div id="toolbar">
+            <table>
+              <tbody data-bind="foreach: layers">
+                <tr data-bind="css: { up: $parent.upLayer === $data, down: $parent.downLayer === $data }">
+                  <td><input type="checkbox" data-bind="checked: show"></td>
+                  <td>
+                    <span data-bind="text: name, visible: !$parent.isSelectableLayer($data)"></span>
+                    <select data-bind="visible: $parent.isSelectableLayer($data), options: $parent.baseLayers, optionsText: 'name', value: $parent.selectedLayer"></select>
+                  </td>
+                  <td>
+                    <input type="range" min="0" max="1" step="0.01" data-bind="value: alpha, valueUpdate: 'input'">
+                  </td>
+                  <td>
+                    <button type="button" class="cesium-button" data-bind="click: function() { $parent.raise($data, $index()); }, visible: $parent.canRaise($index())">
+                      ▲
+                    </button>
+                  </td>
+                  <td>
+                    <button type="button" class="cesium-button" data-bind="click: function() { $parent.lower($data, $index()); }, visible: $parent.canLower($index())">
+                      ▼
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+      </div>
+
+
+
+  </div>
+</div>
+
+    <script src="./js/coastal.js"></script>
+    <div style="position: absolute;bottom: 50px;left: 20px;">
+      <img src="./img/temp_logo_mini.png">
+    </div>
+
+  </body>
+</html>

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+      <meta name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+      <title>ggoer-topo-demo</title>
+      <script src="https://cesium.com/downloads/cesiumjs/releases/1.69/Build/Cesium/Cesium.js"></script>
+      <link href="https://cesium.com/downloads/cesiumjs/releases/1.69/Build/Cesium/Widgets/widgets.css" rel="stylesheet">
+      <!--<script src="node_modules/cesium/Build/Cesium/Cesium.js"></script>-->
+      <!--<link rel="stylesheet" href="node_modules/cesium/Build/Cesium/Widgets/widgets.css">-->
+      <link rel="stylesheet" href="./css/style.css">
+      <link rel="stylesheet" href="./css/box.css">
+  </head>
+  <body>
+    <div id="cesiumContainer" class="cesium"></div>
+    <div id="ac-box"class="ac-box">
+      <input id="acd-check1" class="acd-check" type="checkbox">
+        <label class="acd-label" for="acd-check1">
+          <img src="./img/layer_box.png"></label>
+        <div class="acd-content">
+          <input id="1" class="acd-check2" type="checkbox">
+            <label class="acd-label2" for="1">■河川のつくる地形</label>
+          <div class="acd-content2">
+              <input id="topo" type="checkbox" checked/>
+              <label for="topo">河川の位置</label>
+        </div>
+          <input id="2" class="acd-check2" type="checkbox">
+            <label class="acd-label2" for="2"><span class="r">■</span>【国外】扇状地</label>
+          <div class="acd-content2">
+            <button type="button" class="cesium-button" onclick = "Hanaupah();" data-toggle="tooltip" data-placement="bottom" title="home">ハノーパー・キャニオン(デスバレー)</button><br>
+            <button type="button" class="cesium-button" onclick = "Iran();" data-toggle="tooltip" data-placement="bottom" title="home">イラン中部</button><br>
+            <button type="button" class="cesium-button" onclick = "Koshi();" data-toggle="tooltip" data-placement="bottom" title="home">コシ川</button><br>
+            <button type="button" class="cesium-button" onclick = "Okavango();" data-toggle="tooltip" data-placement="bottom" title="home">オカバンゴ・デルタ（ボツワナ）</button>
+        </div>
+        <input id="3" class="acd-check2" type="checkbox">
+          <label class="acd-label2" for="3"><span class="b">■</span>【国外】自然堤防、三日月湖等</label>
+        <div class="acd-content2">
+            <button type="button" class="cesium-button" onclick = "Nowitna();" data-toggle="tooltip" data-placement="bottom" title="home">ノウィトナ川</button><br>
+            <button type="button" class="cesium-button" onclick = "Seine();" data-toggle="tooltip" data-placement="bottom" title="home">セーヌ川</button><br>
+            <button type="button" class="cesium-button" onclick = "Amazon();" data-toggle="tooltip" data-placement="bottom" title="home">アマゾン川</button><br>
+            <button type="button" class="cesium-button" onclick = "Parana();" data-toggle="tooltip" data-placement="bottom" title="home">パラナ川</button>
+        </div>
+
+        <input id="4" class="acd-check2" type="checkbox">
+          <label class="acd-label2" for="4"><span class="g">■</span>【国外】三角州</label>
+        <div class="acd-content2">
+            <button type="button" class="cesium-button" onclick = "Nile();" data-toggle="tooltip" data-placement="bottom" title="home">ナイル川</button><br>
+            <button type="button" class="cesium-button" onclick = "Mississippi();" data-toggle="tooltip" data-placement="bottom" title="home">ミシシッピ川</button><br>
+            <button type="button" class="cesium-button" onclick = "Tiber();" data-toggle="tooltip" data-placement="bottom" title="home">テレヴェ川</button><br>
+            <button type="button" class="cesium-button" onclick = "Ganges();" data-toggle="tooltip" data-placement="bottom" title="home">ガンジス川</button><br>
+            <button type="button" class="cesium-button" onclick = "Mekong();" data-toggle="tooltip" data-placement="bottom" title="home">メコン川</button><br>
+            <button type="button" class="cesium-button" onclick = "Yellow();" data-toggle="tooltip" data-placement="bottom" title="home">黄河</button><br>
+            <button type="button" class="cesium-button" onclick = "Yangtze();" data-toggle="tooltip" data-placement="bottom" title="home">長江</button><br>
+            <button type="button" class="cesium-button" onclick = "Ob();" data-toggle="tooltip" data-placement="bottom" title="home">オビ川</button><br>
+            <button type="button" class="cesium-button" onclick = "Indus();" data-toggle="tooltip" data-placement="bottom" title="home">インダス川</button>
+        </div>
+
+        <input id="5" class="acd-check2" type="checkbox">
+          <label class="acd-label2" for="5"><span class="o">■</span>【国内】扇状地</label>
+        <div class="acd-content2">
+            <button type="button" class="cesium-button" onclick = "Kyodo();" data-toggle="tooltip" data-placement="bottom" title="home">京戸川（甲府）</button><br>
+            <button type="button" class="cesium-button" onclick = "Momose();" data-toggle="tooltip" data-placement="bottom" title="home">百瀬川</button><br>
+            <button type="button" class="cesium-button" onclick = "Kurobe();" data-toggle="tooltip" data-placement="bottom" title="home">黒部川</button><br>
+            <button type="button" class="cesium-button" onclick = "Sumiyoshi();" data-toggle="tooltip" data-placement="bottom" title="home">住吉川</button>
+        </div>
+
+          <input id="6" class="acd-check2" type="checkbox">
+            <label class="acd-label2" for="6"><span class="lb">■</span>【国内】自然堤防、三日月湖等</label>
+          <div class="acd-content2">
+            <button type="button" class="cesium-button" onclick = "Ishikari();" data-toggle="tooltip" data-placement="bottom" title="home">石狩川</button><br>
+            <button type="button" class="cesium-button" onclick = "Ara();" data-toggle="tooltip" data-placement="bottom" title="home">荒川（川島）</button><br>
+            <button type="button" class="cesium-button" onclick = "Agano();" data-toggle="tooltip" data-placement="bottom" title="home">阿賀野川</button><br>
+            <button type="button" class="cesium-button" onclick = "Hase();" data-toggle="tooltip" data-placement="bottom" title="home">初瀬川（田原本）</button>
+      </div>
+
+          <input id="7" class="acd-check2" type="checkbox">
+            <label class="acd-label2" for="7"><span class="lg">■</span>【国内】三角州</label>
+          <div class="acd-content2">
+            <button type="button" class="cesium-button" onclick = "Ota();" data-toggle="tooltip" data-placement="bottom" title="home">太田川</button><br>
+          <button type="button" class="cesium-button" onclick = "Kuzumo();" data-toggle="tooltip" data-placement="bottom" title="home">雲出川</button><br>
+          <button type="button" class="cesium-button" onclick = "Kiso();" data-toggle="tooltip" data-placement="bottom" title="home">木曽川</button><br>
+          <button type="button" class="cesium-button" onclick = "Yodo();" data-toggle="tooltip" data-placement="bottom" title="home">淀川</button>
+      </div>
+
+      <input id="8" class="acd-check2" type="checkbox">
+        <label class="acd-label2" for="8"><span class="p">■</span>【国内】河岸段丘</label>
+      <div class="acd-content2">
+        <button type="button" class="cesium-button" onclick = "Katashina();" data-toggle="tooltip" data-placement="bottom" title="home">片品川（沼田）</button><br>
+        <button type="button" class="cesium-button" onclick = "Tenryu();" data-toggle="tooltip" data-placement="bottom" title="home">天竜川</button><br>
+        <button type="button" class="cesium-button" onclick = "Edo();" data-toggle="tooltip" data-placement="bottom" title="home">江戸川</button>
+      </div>
+        <input id="0" class="acd-check2" type="checkbox">
+          <label class="acd-label2" for="0">■Maps</label>
+        <div class="acd-content2">
+          <div id="toolbar">
+            <table>
+              <tbody data-bind="foreach: layers">
+                <tr data-bind="css: { up: $parent.upLayer === $data, down: $parent.downLayer === $data }">
+                  <td><input type="checkbox" data-bind="checked: show"></td>
+                  <td>
+                    <span data-bind="text: name, visible: !$parent.isSelectableLayer($data)"></span>
+                    <select data-bind="visible: $parent.isSelectableLayer($data), options: $parent.baseLayers, optionsText: 'name', value: $parent.selectedLayer"></select>
+                  </td>
+                  <td>
+                    <input type="range" min="0" max="1" step="0.01" data-bind="value: alpha, valueUpdate: 'input'">
+                  </td>
+                  <td>
+                    <button type="button" class="cesium-button" data-bind="click: function() { $parent.raise($data, $index()); }, visible: $parent.canRaise($index())">
+                      ▲
+                    </button>
+                  </td>
+                  <td>
+                    <button type="button" class="cesium-button" data-bind="click: function() { $parent.lower($data, $index()); }, visible: $parent.canLower($index())">
+                      ▼
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+      </div>
+
+
+
+  </div>
+</div>
+
+    <script src="./js/rivers.js"></script>
+    <div style="position: absolute;bottom: 50px;left: 20px;">
+      <img src="./img/temp_logo_mini.png">
+    </div>
+
+  </body>
+</html>
