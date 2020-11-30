@@ -1,13 +1,6 @@
-# demo-ggoer
-This is a test repository.
+# Maps
 
-
-## Reader
-![](reader.png) 
-
-## Maps using Leaflet
-https://gg-oer.github.io/maps/leaflet/
-
+## Leaflet
 You can choose some maps for learning GIS from below table.
 At the moment, 5 maps were published.
 
@@ -19,11 +12,8 @@ At the moment, 5 maps were published.
 |[Visualization of toporaphy](https://gg-oer.github.io/maps/leaflet/4-m1.html)||
 |[Anaglyph](https://gg-oer.github.io/maps/leaflet/4-m2.html)||
 
-## Maps using Cesium
-https://gg-oer.github.io/maps/cesium/
-
-You can choose some maps for learning topography from below table.
-At the moment, 11 maps were published.
+## Cesium
+You can choose some maps for learning GIS and topography from below table. At the moment, 11 maps were published.
 
 |Contents|Memo|
 |---|---|
