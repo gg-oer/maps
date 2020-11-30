@@ -1,0 +1,9 @@
+/node_modules
+/_book
+npm-debug.log
+.DS_Store
+/book.epub
+/book.pdf
+
+
+

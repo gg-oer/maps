@@ -23,14 +23,14 @@
     };
 
     var geojsonOptions1 = {
-      credit:' activefaults.geojson was created refer to the Global Active Faults<a href=https://github.com/cossatot/gem-global-active-faults>©GEM-GAF　CC BY SA 4.0</a>',
+      credit:'',
       markerSize: 5,
       markerColor:Cesium.Color.RED,
       clampToGround : true
     };
 
     var geojsonOptions2 = {
-      credit:' activefaults.geojson was created refer to the Global Active Faults<a href=https://github.com/cossatot/gem-global-active-faults>©GEM-GAF　CC BY SA 4.0</a>',
+      credit:'',
       markerSize: 5,
       markerColor:Cesium.Color.YELLOW,
       clampToGround : true

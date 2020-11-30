@@ -244,10 +244,10 @@
       addAdditionalLayerOption(
         "主要な活断層",
         new Cesium.UrlTemplateImageryProvider({
-        url : './data/faults/{z}/{x}/{y}.png',
+        url : 'https://gg-oer.github.io/tiles/faults/{z}/{x}/{y}.png',
         maximumLevel: 0,
         maximumLevel: 9,
-        credit : new Cesium.Credit('activefaults.geojson was created refer to the Global Active Faults<a href=https://github.com/cossatot/gem-global-active-faults>©GEM-GAF　CC BY SA 4.0</a>')
+        credit : new Cesium.Credit('activefaults(tile) were created refer to the Global Active Faults<a href=https://github.com/cossatot/gem-global-active-faults>©GEM-GAF　CC BY SA 4.0</a>')
       }),
       1.0,
       true

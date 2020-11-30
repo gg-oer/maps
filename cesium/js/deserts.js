@@ -720,7 +720,7 @@ function Uyuni()
   addAdditionalLayerOption(
         "topo",
         new Cesium.UrlTemplateImageryProvider({
-        url : './data/topo/{z}/{x}/{y}.png',
+        url : 'https://gg-oer.github.io/tiles/topo/{z}/{x}/{y}.png',
         maximumLevel: 0,
         maximumLevel: 8,
         credit : new Cesium.Credit('h.yamauchi cc by sa 4.0')
