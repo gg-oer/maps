@@ -59,7 +59,7 @@ var d = viewer.entities.add({
 
 var e = viewer.entities.add({
       name:"サンアンドレアス断層",
-      description:"<center><img src='/img/plate/Aerial-SanAndreas-CarrizoPlain.jpg' width=auto height=300><p>©John Wiley CC BY 3.0</p></center><p>サンアンドレアス断層は、カリフォルニア州からメキシコまで縦断しており、その総延長は約1300kmです。点の位置は、カリゾ平原の周辺を指し、そこから撮影した写真が上の図です。この地域では、下の図のように、隣り合うプレートが南北逆方向に移動しています。カリフォルニア州中部のホリスターでは、カラベス断層（サンアンドレス断層系）のクリープ現象（非常にゆっくり動く断層の活動）により、道路、家屋等の変形が観察できる</p><center><img src='./img/plate/Sanandreas.jpg' width=auto height=300></center>",
+      description:"<center><img src='/img/Aerial-SanAndreas-CarrizoPlain.jpg' width=auto height=300><p>©John Wiley CC BY 3.0</p></center><p>サンアンドレアス断層は、カリフォルニア州からメキシコまで縦断しており、その総延長は約1300kmです。点の位置は、カリゾ平原の周辺を指し、そこから撮影した写真が上の図です。この地域では、下の図のように、隣り合うプレートが南北逆方向に移動しています。カリフォルニア州中部のホリスターでは、カラベス断層（サンアンドレス断層系）のクリープ現象（非常にゆっくり動く断層の活動）により、道路、家屋等の変形が観察できる</p><center><img src='./img/plate/Sanandreas.jpg' width=auto height=300></center>",
         position : Cesium.Cartesian3.fromDegrees(-119.886265,35.197577,10000),
         billboard : {
           image : "./img/e.png",
