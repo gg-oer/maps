@@ -184,7 +184,7 @@
       "name" : "京戸川（甲府）",
       "description" : "",
       "billboard" : {
-      "image" : " ./img/orange.png",
+      "image" : " ./img/red.png",
       "scale" : 0.5},
       "position" : {
       "cartographicDegrees" : [138.720988	,	35.640552	,	2000]}
@@ -193,7 +193,7 @@
       "name" : "百瀬川",
       "description" : "",
       "billboard" : {
-      "image" : " ./img/orange.png",
+      "image" : " ./img/red.png",
       "scale" : 0.5},
       "position" : {
       "cartographicDegrees" : [136.022301	,	35.446627	,	2000]}
@@ -202,7 +202,7 @@
       "name" : "黒部川",
       "description" : "",
       "billboard" : {
-      "image" : " ./img/orange.png",
+      "image" : " ./img/red.png",
       "scale" : 0.5},
       "position" : {
       "cartographicDegrees" : [137.490726	,	36.893423	,	2000]}
@@ -211,7 +211,7 @@
       "name" : "住吉川",
       "description" : "",
       "billboard" : {
-      "image" : " ./img/orange.png",
+      "image" : " ./img/red.png",
       "scale" : 0.5},
       "position" : {
       "cartographicDegrees" : [135.268	,	34.717433	,	2000]}
@@ -220,7 +220,7 @@
       "name" : "石狩川",
       "description" : "",
       "billboard" : {
-      "image" : " ./img/lightblue.png",
+      "image" : " ./img/blue.png",
       "scale" : 0.5},
       "position" : {
       "cartographicDegrees" : [141.834674	,	43.417172	,	2000]}
@@ -229,7 +229,7 @@
       "name" : "荒川（川島）",
       "description" : "",
       "billboard" : {
-      "image" : " ./img/lightblue.png",
+      "image" : " ./img/blue.png",
       "scale" : 0.5},
       "position" : {
       "cartographicDegrees" : [139.490072	,	35.969132	,	2000]}
@@ -238,7 +238,7 @@
       "name" : "阿賀野川",
       "description" : "",
       "billboard" : {
-      "image" : " ./img/lightblue.png",
+      "image" : " ./img/blue.png",
       "scale" : 0.5},
       "position" : {
       "cartographicDegrees" : [139.190798	,	37.86847	,	2000]}
@@ -247,7 +247,7 @@
       "name" : "初瀬川（田原本）",
       "description" : "",
       "billboard" : {
-      "image" : " ./img/lightblue.png",
+      "image" : " ./img/blue.png",
       "scale" : 0.5},
       "position" : {
       "cartographicDegrees" : [135.813998	,	34.556213	,	2000]}
@@ -256,7 +256,7 @@
       "name" : "太田川",
       "description" : "",
       "billboard" : {
-      "image" : " ./img/lightgreen.png",
+      "image" : " ./img/green.png",
       "scale" : 0.5},
       "position" : {
       "cartographicDegrees" : [132.428684	,	34.360372	,	2000]}
@@ -265,7 +265,7 @@
       "name" : "雲出川",
       "description" : "",
       "billboard" : {
-      "image" : " ./img/lightgreen.png",
+      "image" : " ./img/green.png",
       "scale" : 0.5},
       "position" : {
       "cartographicDegrees" : [136.54329	,	34.64964	,	2000]}
@@ -274,7 +274,7 @@
       "name" : "木曽川",
       "description" : "",
       "billboard" : {
-      "image" : " ./img/lightgreen.png",
+      "image" : " ./img/green.png",
       "scale" : 0.5},
       "position" : {
       "cartographicDegrees" : [136.723698	,	35.047222	,	2000]}
@@ -283,7 +283,7 @@
       "name" : "淀川",
       "description" : "",
       "billboard" : {
-      "image" : " ./img/lightgreen.png",
+      "image" : " ./img/green.png",
       "scale" : 0.5},
       "position" : {
       "cartographicDegrees" : [135.428749	,	34.676969	,	2000]}
@@ -739,7 +739,7 @@ function Edo()
       false
       );
 
-      addBaseLayerOption(
+      addAdditionalLayerOption(
         "地理院タイル（淡色地図）",
         new Cesium.UrlTemplateImageryProvider({
         url : 'https://cyberjapandata.gsi.go.jp/xyz/pale/{z}/{x}/{y}.png',

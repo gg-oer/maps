@@ -27,16 +27,25 @@
               <label for="topo">河川の位置</label>
         </div>
           <input id="2" class="acd-check2" type="checkbox">
-            <label class="acd-label2" for="2"><span class="r">■</span>【国外】扇状地</label>
+            <label class="acd-label2" for="2"><span class="r">■</span>扇状地</label>
           <div class="acd-content2">
+            <button type="button" class="cesium-button" onclick = "Kyodo();" data-toggle="tooltip" data-placement="bottom" title="home">京戸川（甲府）</button><br>
+            <button type="button" class="cesium-button" onclick = "Momose();" data-toggle="tooltip" data-placement="bottom" title="home">百瀬川</button><br>
+            <button type="button" class="cesium-button" onclick = "Kurobe();" data-toggle="tooltip" data-placement="bottom" title="home">黒部川</button><br>
+            <button type="button" class="cesium-button" onclick = "Sumiyoshi();" data-toggle="tooltip" data-placement="bottom" title="home">住吉川</button><br>
             <button type="button" class="cesium-button" onclick = "Hanaupah();" data-toggle="tooltip" data-placement="bottom" title="home">ハノーパー・キャニオン(デスバレー)</button><br>
             <button type="button" class="cesium-button" onclick = "Iran();" data-toggle="tooltip" data-placement="bottom" title="home">イラン中部</button><br>
             <button type="button" class="cesium-button" onclick = "Koshi();" data-toggle="tooltip" data-placement="bottom" title="home">コシ川</button><br>
             <button type="button" class="cesium-button" onclick = "Okavango();" data-toggle="tooltip" data-placement="bottom" title="home">オカバンゴ・デルタ（ボツワナ）</button>
+
         </div>
         <input id="3" class="acd-check2" type="checkbox">
-          <label class="acd-label2" for="3"><span class="b">■</span>【国外】自然堤防、三日月湖等</label>
+          <label class="acd-label2" for="3"><span class="b">■</span>自然堤防、三日月湖等</label>
         <div class="acd-content2">
+            <button type="button" class="cesium-button" onclick = "Ishikari();" data-toggle="tooltip" data-placement="bottom" title="home">石狩川</button><br>
+            <button type="button" class="cesium-button" onclick = "Ara();" data-toggle="tooltip" data-placement="bottom" title="home">荒川（川島）</button><br>
+            <button type="button" class="cesium-button" onclick = "Agano();" data-toggle="tooltip" data-placement="bottom" title="home">阿賀野川</button><br>
+            <button type="button" class="cesium-button" onclick = "Hase();" data-toggle="tooltip" data-placement="bottom" title="home">初瀬川（田原本）</button><br>
             <button type="button" class="cesium-button" onclick = "Nowitna();" data-toggle="tooltip" data-placement="bottom" title="home">ノウィトナ川</button><br>
             <button type="button" class="cesium-button" onclick = "Seine();" data-toggle="tooltip" data-placement="bottom" title="home">セーヌ川</button><br>
             <button type="button" class="cesium-button" onclick = "Amazon();" data-toggle="tooltip" data-placement="bottom" title="home">アマゾン川</button><br>
@@ -44,8 +53,12 @@
         </div>
 
         <input id="4" class="acd-check2" type="checkbox">
-          <label class="acd-label2" for="4"><span class="g">■</span>【国外】三角州</label>
+          <label class="acd-label2" for="4"><span class="g">■</span>三角州</label>
         <div class="acd-content2">
+              <button type="button" class="cesium-button" onclick = "Ota();" data-toggle="tooltip" data-placement="bottom" title="home">太田川</button><br>
+            <button type="button" class="cesium-button" onclick = "Kuzumo();" data-toggle="tooltip" data-placement="bottom" title="home">雲出川</button><br>
+            <button type="button" class="cesium-button" onclick = "Kiso();" data-toggle="tooltip" data-placement="bottom" title="home">木曽川</button><br>
+            <button type="button" class="cesium-button" onclick = "Yodo();" data-toggle="tooltip" data-placement="bottom" title="home">淀川</button><br>
             <button type="button" class="cesium-button" onclick = "Nile();" data-toggle="tooltip" data-placement="bottom" title="home">ナイル川</button><br>
             <button type="button" class="cesium-button" onclick = "Mississippi();" data-toggle="tooltip" data-placement="bottom" title="home">ミシシッピ川</button><br>
             <button type="button" class="cesium-button" onclick = "Tiber();" data-toggle="tooltip" data-placement="bottom" title="home">テレヴェ川</button><br>
@@ -57,35 +70,8 @@
             <button type="button" class="cesium-button" onclick = "Indus();" data-toggle="tooltip" data-placement="bottom" title="home">インダス川</button>
         </div>
 
-        <input id="5" class="acd-check2" type="checkbox">
-          <label class="acd-label2" for="5"><span class="o">■</span>【国内】扇状地</label>
-        <div class="acd-content2">
-            <button type="button" class="cesium-button" onclick = "Kyodo();" data-toggle="tooltip" data-placement="bottom" title="home">京戸川（甲府）</button><br>
-            <button type="button" class="cesium-button" onclick = "Momose();" data-toggle="tooltip" data-placement="bottom" title="home">百瀬川</button><br>
-            <button type="button" class="cesium-button" onclick = "Kurobe();" data-toggle="tooltip" data-placement="bottom" title="home">黒部川</button><br>
-            <button type="button" class="cesium-button" onclick = "Sumiyoshi();" data-toggle="tooltip" data-placement="bottom" title="home">住吉川</button>
-        </div>
-
-          <input id="6" class="acd-check2" type="checkbox">
-            <label class="acd-label2" for="6"><span class="lb">■</span>【国内】自然堤防、三日月湖等</label>
-          <div class="acd-content2">
-            <button type="button" class="cesium-button" onclick = "Ishikari();" data-toggle="tooltip" data-placement="bottom" title="home">石狩川</button><br>
-            <button type="button" class="cesium-button" onclick = "Ara();" data-toggle="tooltip" data-placement="bottom" title="home">荒川（川島）</button><br>
-            <button type="button" class="cesium-button" onclick = "Agano();" data-toggle="tooltip" data-placement="bottom" title="home">阿賀野川</button><br>
-            <button type="button" class="cesium-button" onclick = "Hase();" data-toggle="tooltip" data-placement="bottom" title="home">初瀬川（田原本）</button>
-      </div>
-
-          <input id="7" class="acd-check2" type="checkbox">
-            <label class="acd-label2" for="7"><span class="lg">■</span>【国内】三角州</label>
-          <div class="acd-content2">
-            <button type="button" class="cesium-button" onclick = "Ota();" data-toggle="tooltip" data-placement="bottom" title="home">太田川</button><br>
-          <button type="button" class="cesium-button" onclick = "Kuzumo();" data-toggle="tooltip" data-placement="bottom" title="home">雲出川</button><br>
-          <button type="button" class="cesium-button" onclick = "Kiso();" data-toggle="tooltip" data-placement="bottom" title="home">木曽川</button><br>
-          <button type="button" class="cesium-button" onclick = "Yodo();" data-toggle="tooltip" data-placement="bottom" title="home">淀川</button>
-      </div>
-
       <input id="8" class="acd-check2" type="checkbox">
-        <label class="acd-label2" for="8"><span class="p">■</span>【国内】河岸段丘</label>
+        <label class="acd-label2" for="8"><span class="p">■</span>河岸段丘</label>
       <div class="acd-content2">
         <button type="button" class="cesium-button" onclick = "Katashina();" data-toggle="tooltip" data-placement="bottom" title="home">片品川（沼田）</button><br>
         <button type="button" class="cesium-button" onclick = "Tenryu();" data-toggle="tooltip" data-placement="bottom" title="home">天竜川</button><br>
