@@ -20,7 +20,7 @@
 
     //earthquake
 
-    var eqPromise = Cesium.GeoJsonDataSource.load('./data/earthquake_top<200.geojson',{
+    var eqPromise = Cesium.GeoJsonDataSource.load('./data/earthquake_top_200.geojson',{
       credit:'大地震 was created refer to USGS(PDE)&wikipedia',
       markerSize: 15,
       markerColor:Cesium.Color.PINK,
