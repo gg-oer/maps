@@ -1,0 +1,85 @@
+<html style="height: 100%; margin: 0;">
+<head>
+
+	<title>Kashiwanoha_Park</title>
+
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<link rel="shortcut icon" type="image/x-icon" href="docs/images/favicon.ico" />
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ==" crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js" integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew==" crossorigin=""></script>
+		<script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/Leaflet.fullscreen.min.js'></script>
+		<link href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css' rel='stylesheet' />
+		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"/>
+		<link rel="stylesheet" href="./dist/leaflet.zoomhome.css"/>
+		<script src="./dist/leaflet.zoomhome.min.js"></script>
+		<script src="./dist/bundle.js"></script>
+
+		<style>
+		.leaflet-popup-content-wrapper,
+	 .leaflet-popup-tip {
+		 width: 600;
+	 }
+		</style>
+
+	</head>
+	<body style="height: 100%; margin: 0; overflow: hidden;">
+	<div id='map' style="height: 100%; width: 100%;"></div>
+	</body>
+
+	<script>
+
+	var markers = L.layerGroup();
+	L.marker([35.894287,139.936477]).bindPopup('<h2>音を聞く</h2><audio src="../sounds/kashiwanoha_park.wav" controls loop></audio><br><h2>静止画を見る</h2><iframe width="560" height="315" src= "https://gg-oer.github.io/virtual_views/Kashiwanoha_park/index.html" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><br><h2>動画を見る</h2><iframe width="560" height="315" src="https://www.youtube.com/embed/SjxDAvj-DR0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>').addTo(markers);
+
+
+
+	var map1 = L.tileLayer('https://cyberjapandata.gsi.go.jp/xyz/ort/{z}/{x}/{y}.jpg', {
+	maxZoom: 18,
+	attribution: "<a href='https://maps.gsi.go.jp/development/ichiran.html' target='_blank'>地理院タイル・写真</a>"
+	});
+
+	var map2 = L.tileLayer('https://cyberjapandata.gsi.go.jp/xyz/pale/{z}/{x}/{y}.png', {
+	maxZoom: 18,
+	attribution: "<a href='https://maps.gsi.go.jp/development/ichiran.html' target='_blank'>地理院タイル・淡色地図</a>"
+	});
+
+		var map = L.map('map', {
+			center: [35.894287,139.936477],
+			zoom: 16,
+			layers: [map1,markers],
+			zoomControl: false
+		});
+
+		var baseLayers = {
+			"標準地図": map1,
+			"写真": map2
+		};
+
+
+
+		L.control.layers(baseLayers).addTo(map);
+		L.control.scale({imperial: false}).addTo(map);
+
+		var zoomHome = L.Control.zoomHome();
+		zoomHome.addTo(map);
+		map.addControl(new L.Control.Fullscreen());
+
+		var printer = L.easyPrint({
+			tileLayer: map1,
+			sizeModes: ['Current', 'A4Landscape', 'A4Portrait'],
+			filename: 'myMap',
+			exportOnly: true,
+			hideControlContainer: true
+}).addTo(map);
+
+function manualPrint () {
+	printer.printMap('CurrentSize', 'MyManualPrint')
+}
+
+	</script>
+
+
+</html>
