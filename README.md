@@ -11,6 +11,8 @@ At the moment, 5 maps were published.
 |[Spatial data](https://gg-oer.github.io/maps/leaflet/3-m1.html)||
 |[Visualization of toporaphy](https://gg-oer.github.io/maps/leaflet/4-m1.html)||
 |[Anaglyph](https://gg-oer.github.io/maps/leaflet/4-m2.html)||
+|[Masuda city](https://gg-oer.github.io/maps/leaflet/masuda.html)||
+|[Kashiwanoha Park](https://gg-oer.github.io/maps/leaflet/Kashiwanoha_park.html)||
 
 ## Cesium
 You can choose some maps for learning GIS and topography from below table. At the moment, 11 maps were published.
