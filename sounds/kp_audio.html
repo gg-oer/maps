@@ -1,0 +1,19 @@
+<html>
+<title>kp</title>
+
+<script>
+const mediasVol_def=function(){
+      const audios=document.getElementsByTagName('audio');
+      for(let n=0; audios.length>n; n++){ audios[n].volume = 0.3; }
+}
+
+window.addEventListener('DOMContentLoaded' , function(){
+      mediasVol_def();
+}, false);
+</script>
+
+<body>
+<audio src="./kashiwanoha_park.wav" controls loop></audio>
+</body>
+
+</html>
