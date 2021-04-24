@@ -34,7 +34,7 @@
       "image" : " ./img/red.png",
       "scale" : 0.5},
       "position" : {
-      "cartographicDegrees" : [-116.881175	,	36.159014	,	2000]}
+      "cartographicDegrees" : [-116.76	,	36.12	,	2000]}
     },{
       "id" : "2",
       "name" : "イラン中部",
@@ -339,10 +339,20 @@
 
 function Hanaupah()
     {viewer.camera.flyTo({
-     destination : Cesium.Cartesian3.fromDegrees(-116.881175	,	36.159014	,	50000),
+     destination : Cesium.Cartesian3.fromDegrees(-116.76	,	36.12	,	15000),
   orientation: {
     heading: 0,
     pitch: -1.6,
+    roll: 0
+  }})
+    }
+
+function Hanaupah_off()
+    {viewer.camera.flyTo({
+     destination : Cesium.Cartesian3.fromDegrees(-116.76	,	35.99	,	4000),
+  orientation: {
+    heading: 0,
+    pitch: -0.2,
     roll: 0
   }})
     }
@@ -356,6 +366,16 @@ function Iran()
     roll: 0
   }})
 }
+
+function Iran_off()
+    {viewer.camera.flyTo({
+     destination : Cesium.Cartesian3.fromDegrees(55, 29, 4000),
+  orientation: {
+    heading: 3.8,
+    pitch: -0.2,
+    roll: 0
+  }})
+    }
 
 function Koshi()
     {viewer.camera.flyTo({
@@ -426,6 +446,7 @@ function Nile()
     roll: 0
   }})
 }
+
 function Mississippi()
     {viewer.camera.flyTo({
      destination : Cesium.Cartesian3.fromDegrees(-89.237323	,	29.114358	,	350000),
@@ -516,6 +537,16 @@ function Kyodo()
   }})
 }
 
+function Kyodo_off()
+    {viewer.camera.flyTo({
+     destination : Cesium.Cartesian3.fromDegrees(138.717988	,	35.679552,	2000),
+  orientation: {
+    heading: 3.2,
+    pitch: -0.2,
+    roll: 0
+  }})
+}
+
 function Momose()
     {viewer.camera.flyTo({
      destination : Cesium.Cartesian3.fromDegrees(136.022301	,	35.446627	,	5000),
@@ -545,6 +576,17 @@ function Sumiyoshi()
     roll: 0
   }})
 }
+
+function Sumiyoshi_off()
+    {viewer.camera.flyTo({
+     destination : Cesium.Cartesian3.fromDegrees(135.300	,	34.65433	,	3000),
+  orientation: {
+    heading: -0.4,
+    pitch: -0.3,
+    roll: 0
+  }})
+}
+
 
 function Ishikari()
     {viewer.camera.flyTo({
@@ -596,7 +638,7 @@ function Ota()
   }})
 }
 
-function Kuzumo()
+function Kumozu()
     {viewer.camera.flyTo({
      destination : Cesium.Cartesian3.fromDegrees(136.54329	,	34.64964	,	20000),
   orientation: {
@@ -632,6 +674,16 @@ function Katashina()
   orientation: {
     heading: 0,
     pitch: -1.6,
+    roll: 0
+  }})
+}
+
+function Katashina_off()
+    {viewer.camera.flyTo({
+     destination : Cesium.Cartesian3.fromDegrees(139.040096, 36.615183	,	1500),
+  orientation: {
+    heading: 0.7,
+    pitch: -0.2,
     roll: 0
   }})
 }
