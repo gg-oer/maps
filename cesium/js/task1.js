@@ -66,12 +66,32 @@ function t1()
   }})
     }
 
+function t1_off()
+    {viewer.camera.flyTo({
+     destination : Cesium.Cartesian3.fromDegrees(135.818110,34.515505, 1000),
+  orientation: {
+    heading: 1.57,
+    pitch: -0.17,
+    roll: 0
+  }})
+    }
+
 function t2()
     {viewer.camera.flyTo({
      destination : Cesium.Cartesian3.fromDegrees(135.206375,34.153395, 10000),
   orientation: {
     heading: 0,
     pitch: -1.6,
+    roll: 0
+  }})
+    }
+
+function t2_off()
+    {viewer.camera.flyTo({
+     destination : Cesium.Cartesian3.fromDegrees(135.149375,34.153395, 1500),
+  orientation: {
+    heading: 1.57,
+    pitch: -0.2,
     roll: 0
   }})
     }
@@ -86,12 +106,32 @@ function t3()
   }})
     }
 
+function t3_off()
+    {viewer.camera.flyTo({
+     destination : Cesium.Cartesian3.fromDegrees(131.411774,34.430451, 500),
+  orientation: {
+    heading: 0,
+    pitch: -0.2,
+    roll: 0
+  }})
+    }
+
 function t4()
     {viewer.camera.flyTo({
      destination : Cesium.Cartesian3.fromDegrees(131.182660,34.405940, 10000),
   orientation: {
     heading: 0,
     pitch: -1.6,
+    roll: 0
+  }})
+    }
+
+function t4_off()
+    {viewer.camera.flyTo({
+     destination : Cesium.Cartesian3.fromDegrees(131.180660,34.3860, 800),
+  orientation: {
+    heading: 0.2,
+    pitch: -0.2,
     roll: 0
   }})
     }
@@ -106,15 +146,35 @@ function t5()
   }})
     }
 
-    function t6()
-        {viewer.camera.flyTo({
-         destination : Cesium.Cartesian3.fromDegrees(140.431783,38.411123, 10000),
-      orientation: {
-        heading: 0,
-        pitch: -1.6,
-        roll: 0
-      }})
-        }
+function t5_off()
+    {viewer.camera.flyTo({
+     destination : Cesium.Cartesian3.fromDegrees(131.687362,33.466612, 500),
+  orientation: {
+    heading: 1.57,
+    pitch: -0.5,
+    roll: 0
+  }})
+    }
+
+function t6()
+    {viewer.camera.flyTo({
+     destination : Cesium.Cartesian3.fromDegrees(140.431783,38.411123, 10000),
+  orientation: {
+    heading: 0,
+    pitch: -1.6,
+    roll: 0
+  }})
+    }
+
+function t6_off()
+    {viewer.camera.flyTo({
+     destination : Cesium.Cartesian3.fromDegrees(140.321783,38.411123, 2000),
+  orientation: {
+    heading: 1.57,
+    pitch: -0.3,
+    roll: 0
+  }})
+    }
 
 function t7()
     {viewer.camera.flyTo({
@@ -122,6 +182,16 @@ function t7()
   orientation: {
     heading: 0,
     pitch: -1.6,
+    roll: 0
+  }})
+    }
+
+function t7_off()
+    {viewer.camera.flyTo({
+     destination : Cesium.Cartesian3.fromDegrees(140.310504,35.836357, 2500),
+  orientation: {
+    heading: 0,
+    pitch:  -0.5,
     roll: 0
   }})
     }
@@ -136,6 +206,16 @@ function t8()
   }})
     }
 
+function t8_off()
+    {viewer.camera.flyTo({
+     destination : Cesium.Cartesian3.fromDegrees(140.765058,35.666774, 1500),
+  orientation: {
+    heading: -0.2,
+    pitch: -0.3,
+    roll: 0
+  }})
+    }
+
 function t9()
     {viewer.camera.flyTo({
      destination : Cesium.Cartesian3.fromDegrees(137.790830,34.648543, 10000),
@@ -146,12 +226,32 @@ function t9()
   }})
     }
 
+function t9_off()
+    {viewer.camera.flyTo({
+     destination : Cesium.Cartesian3.fromDegrees(137.790830,34.628543, 1000),
+  orientation: {
+    heading: 0,
+    pitch: -0.3,
+    roll: 0
+  }})
+    }
+
 function t10()
     {viewer.camera.flyTo({
      destination : Cesium.Cartesian3.fromDegrees(136.735996,34.528739, 10000),
   orientation: {
     heading: 0,
     pitch: -1.6,
+    roll: 0
+  }})
+    }
+
+function t10_off()
+    {viewer.camera.flyTo({
+     destination : Cesium.Cartesian3.fromDegrees(136.785996,34.548739,2000),
+  orientation: {
+    heading: 4.2,
+    pitch: -0.3,
     roll: 0
   }})
     }
