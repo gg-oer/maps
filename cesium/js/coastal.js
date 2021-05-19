@@ -1101,6 +1101,17 @@ function ChiChijima()
         false
         );
 
+        addBaseLayerOption(
+          "地理院タイル（アナグリフ）",
+          new Cesium.UrlTemplateImageryProvider({
+          url : 'https://cyberjapandata.gsi.go.jp/xyz/anaglyphmap_gray/{z}/{x}/{y}.png',
+          maximumLevel: 16,
+          credit : new Cesium.Credit('<a href="https://maps.gsi.go.jp/development/ichiran.html">国土地理院　地理院タイル（アナグリフ・グレー）</a>')
+        }),
+        1.0,
+        false
+        );
+
   addAdditionalLayerOption(
         "地形",
         new Cesium.UrlTemplateImageryProvider({
