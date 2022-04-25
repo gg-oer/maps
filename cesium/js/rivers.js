@@ -304,9 +304,18 @@
       "image" : " ./img/pink.png",
       "scale" : 0.5},
       "position" : {
-      "cartographicDegrees" : [137.853135	,	34.775345	,	2000]}
+      "cartographicDegrees" : [137.853135,	34.775345	,	2000]}
     },{
       "id" : "32",
+      "name" : "相模川",
+      "description" : "",
+      "billboard" : {
+      "image" : " ./img/pink.png",
+      "scale" : 0.5},
+      "position" : {
+      "cartographicDegrees" : [139.324951,	35.547004	,	2000]}
+    },{
+      "id" : "33",
       "name" : "江戸川",
       "description" : "",
       "billboard" : {
@@ -691,6 +700,16 @@ function Katashina_off()
 function Tenryu()
     {viewer.camera.flyTo({
      destination : Cesium.Cartesian3.fromDegrees(137.853135	,	34.775345	,	20000),
+  orientation: {
+    heading: 0,
+    pitch: -1.6,
+    roll: 0
+  }})
+    }
+
+function Sagami()
+    {viewer.camera.flyTo({
+     destination : Cesium.Cartesian3.fromDegrees(139.324951	,	35.547004	,	20000),
   orientation: {
     heading: 0,
     pitch: -1.6,
