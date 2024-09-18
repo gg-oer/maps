@@ -5,7 +5,7 @@ var viewer = new Cesium.Viewer("cesiumContainer", {
   url : 'https://services.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer',
   enablePickFeatures:false,
   credit : new Cesium.Credit('Source: Esri, DigitalGlobe, GeoEye, Earthstar Geographics, CNES/Airbus DS, USDA, USGS, AeroGRID, IGN, and the GIS User Community')}),
-  baseLayerPicker: true,
+  baseLayerPicker: false,
   timeline : false,
   animation : false,
   homeButton: true,
