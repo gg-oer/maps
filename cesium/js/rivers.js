@@ -54,15 +54,6 @@
       "position" : {
       "cartographicDegrees" : [86.753164	,	26.370998	,	2000]}
     },{
-      "id" : "4",
-      "name" : "オカバンゴ・デルタ（ボツワナ）",
-      "description" : "",
-      "billboard" : {
-      "image" : " ./img/red.png",
-      "scale" : 0.5},
-      "position" : {
-      "cartographicDegrees" : [22.601395	,	-19.156497	,	2000]}
-    },{
       "id" : "5",
       "name" : "ノウィトナ川",
       "description" : "",
